@@ -73,10 +73,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form_About.cs">
+    <Compile Include="Forms\Form_About.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_About.Designer.cs">
+    <Compile Include="Forms\Form_About.Designer.cs">
       <DependentUpon>Form_About.cs</DependentUpon>
     </Compile>
     <Compile Include="Form_Main.cs">
@@ -85,39 +85,39 @@
     <Compile Include="Form_Main.Designer.cs">
       <DependentUpon>Form_Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_Net.cs">
+    <Compile Include="Forms\Form_Net.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_Net.Designer.cs">
+    <Compile Include="Forms\Form_Net.Designer.cs">
       <DependentUpon>Form_Net.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_Normal_Fixer.cs">
+    <Compile Include="Forms\Form_Normal_Fixer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_Normal_Fixer.Designer.cs">
+    <Compile Include="Forms\Form_Normal_Fixer.Designer.cs">
       <DependentUpon>Form_Normal_Fixer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_Path_Select.cs">
+    <Compile Include="Forms\Form_Path_Select.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_Path_Select.Designer.cs">
+    <Compile Include="Forms\Form_Path_Select.Designer.cs">
       <DependentUpon>Form_Path_Select.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form_About.resx">
+    <EmbeddedResource Include="Forms\Form_About.resx">
       <DependentUpon>Form_About.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Main.resx">
       <DependentUpon>Form_Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_Net.resx">
+    <EmbeddedResource Include="Forms\Form_Net.resx">
       <DependentUpon>Form_Net.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_Normal_Fixer.resx">
+    <EmbeddedResource Include="Forms\Form_Normal_Fixer.resx">
       <DependentUpon>Form_Normal_Fixer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_Path_Select.resx">
+    <EmbeddedResource Include="Forms\Form_Path_Select.resx">
       <DependentUpon>Form_Path_Select.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
