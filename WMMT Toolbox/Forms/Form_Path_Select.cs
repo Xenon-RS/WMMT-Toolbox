@@ -18,10 +18,13 @@ namespace WMMT_Toolbox
             InitializeComponent();
         }
 
+        string Maxi_Pathing;
+        string AMA_Pathing;
+        string TP_Pathing;
+
         private void button_into_Click(object sender, EventArgs e)
         {
             this.Close();
-            
         }
 
         private void button_Maxi_select_Click(object sender, EventArgs e)
@@ -190,6 +193,71 @@ namespace WMMT_Toolbox
             foreach (string TP_line in File.ReadLines(full_TP_path))
             {
                 textBox_TP.Text = TP_line;
+            }
+        }
+
+        private void Form_Select_Path_Closing(object sender, FormClosingEventArgs e)
+        {
+            //首先获取WMMTLauncher的路径
+            string path2 = System.Environment.UserName;
+            string path1, path3;
+            path1 = @"C:\Users\";
+            path3 = "AppData\\Local\\WMMT-Toolbox\\Path\\";
+            string full_path = Path.Combine(path1, path2, path3);
+
+            //合并路径 Maxi
+            string Maxi_path1 = full_path;
+            string Maxi_path2 = "Maxi.set";
+            string full_Maxi_path = Path.Combine(Maxi_path1, Maxi_path2);
+
+            //合并路径 AMA
+            string AMA_path1 = full_path;
+            string AMA_path2 = "AMA.set";
+            string full_AMA_path = Path.Combine(AMA_path1, AMA_path2);
+
+            //合并路径
+            string TP_path1 = full_path;
+            string TP_path2 = "TP.set";
+            string full_TP_path = Path.Combine(TP_path1, TP_path2);
+
+            foreach (string Maxi_line in File.ReadLines(full_Maxi_path))
+            {
+                Maxi_Pathing = Maxi_line;
+            }
+
+            foreach (string AMA_line in File.ReadLines(full_AMA_path))
+            {
+                AMA_Pathing = AMA_line;
+            }
+
+            foreach (string TP_line in File.ReadLines(full_TP_path))
+            {
+                TP_Pathing = TP_line;
+            }
+
+            Console.WriteLine(Maxi_Pathing);
+            Console.WriteLine(AMA_Pathing);
+            Console.WriteLine(TP_Pathing);
+
+            if (File.Exists(full_Maxi_path) && File.Exists(full_AMA_path) && File.Exists(full_TP_path))
+            {
+                Console.WriteLine("文件存在");
+                if (Maxi_Pathing != null && AMA_Pathing != null && TP_Pathing != null)
+                {
+                    Console.WriteLine("路径不为空");
+                    e.Cancel = false;
+                }
+                else
+                {
+                    Console.WriteLine("路径为空");
+                    MessageBox.Show("请先设定好路径！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    e.Cancel = true;
+                }
+            }
+            else
+            {
+                MessageBox.Show("请先设定好路径！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Cancel = true;
             }
         }
     }

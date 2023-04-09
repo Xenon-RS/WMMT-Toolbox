@@ -191,8 +191,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\114514.jpg" />
-    <EmbeddedResource Include="libs\Newtonsoft.Json.dll" />
-    <EmbeddedResource Include="libs\Newtonsoft.Json.xml" />
     <None Include="bin\Debug\System.Buffers.dll" />
     <None Include="bin\Debug\System.Buffers.xml" />
     <None Include="bin\Debug\System.Memory.dll" />
@@ -204,17 +202,19 @@
     <None Include="bin\Debug\System.Text.Encoding.CodePages.dll" />
     <None Include="bin\Debug\System.Text.Encoding.CodePages.xml" />
     <None Include="bin\Debug\SharpCompress.dll" />
-    <EmbeddedResource Include="libs\System.Buffers.xml" />
-    <EmbeddedResource Include="libs\System.Memory.dll" />
-    <EmbeddedResource Include="libs\System.Memory.xml" />
-    <EmbeddedResource Include="libs\System.Numerics.Vectors.dll" />
-    <EmbeddedResource Include="libs\System.Numerics.Vectors.xml" />
-    <EmbeddedResource Include="libs\System.Runtime.CompilerServices.Unsafe.dll" />
-    <EmbeddedResource Include="libs\System.Runtime.CompilerServices.Unsafe.xml" />
-    <EmbeddedResource Include="libs\System.Text.Encoding.CodePages.dll" />
-    <EmbeddedResource Include="libs\System.Text.Encoding.CodePages.xml" />
-    <EmbeddedResource Include="libs\SharpCompress.dll" />
-    <EmbeddedResource Include="libs\System.Buffers.dll" />
+    <EmbeddedResource Include="Resources\Newtonsoft.Json.dll" />
+    <EmbeddedResource Include="Resources\Newtonsoft.Json.xml" />
+    <EmbeddedResource Include="Resources\SharpCompress.dll" />
+    <EmbeddedResource Include="Resources\System.Buffers.dll" />
+    <EmbeddedResource Include="Resources\System.Buffers.xml" />
+    <EmbeddedResource Include="Resources\System.Memory.dll" />
+    <EmbeddedResource Include="Resources\System.Memory.xml" />
+    <EmbeddedResource Include="Resources\System.Numerics.Vectors.dll" />
+    <EmbeddedResource Include="Resources\System.Numerics.Vectors.xml" />
+    <EmbeddedResource Include="Resources\System.Runtime.CompilerServices.Unsafe.dll" />
+    <EmbeddedResource Include="Resources\System.Runtime.CompilerServices.Unsafe.xml" />
+    <EmbeddedResource Include="Resources\System.Text.Encoding.CodePages.dll" />
+    <EmbeddedResource Include="Resources\System.Text.Encoding.CodePages.xml" />
     <Content Include="WMMT6R.ico" />
   </ItemGroup>
   <ItemGroup>

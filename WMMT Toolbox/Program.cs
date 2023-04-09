@@ -30,7 +30,6 @@ namespace WMMT_Toolbox
             else
             {
                 Console.WriteLine("用户此前没有打开过软件，检测ERROR");
-                MessageBox.Show("检测到您为第一次打开软件\n现在需要配置软件使用\n请点击确定以配置\n配置完成后将进入软件", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 Directory.CreateDirectory(user_path_full); //创建WMMT-Toolbox文件夹
             }
 

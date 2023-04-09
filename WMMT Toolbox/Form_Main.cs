@@ -65,6 +65,23 @@ namespace WMMT_Toolbox
                 //合并路径
                 string TP_Profiles_path = TP_Profiles_path_mid + "\\UserProfiles\\WMMT6R.xml";
 
+                if(!File.Exists(TP_Profiles_path))
+                {
+                    DialogResult error = MessageBox.Show("严重错误！请前往C:\\Users\\你的用户名\\AppData\\Local文件夹中\n删除WMMT-Toolbox文件夹\n然后重新设置路径");
+                    if (error != DialogResult.OK)
+                    {
+                        Process.GetCurrentProcess().Kill();
+                    }
+                    else
+                    {
+                        Console.WriteLine("114514");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("无bug");
+                }
+
                 // 读取文本文件
                 string fileName = TP_Profiles_path;
                 string[] lines = File.ReadAllLines(fileName);

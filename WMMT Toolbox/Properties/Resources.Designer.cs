@@ -108,9 +108,9 @@ namespace WMMT_Toolbox.Properties {
         /// <summary>
         ///   查找 System.Byte[] 类型的本地化资源。
         /// </summary>
-        internal static byte[] RES {
+        internal static byte[] SharpCompress {
             get {
-                object obj = ResourceManager.GetObject("RES", resourceCulture);
+                object obj = ResourceManager.GetObject("SharpCompress", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -118,9 +118,9 @@ namespace WMMT_Toolbox.Properties {
         /// <summary>
         ///   查找 System.Byte[] 类型的本地化资源。
         /// </summary>
-        internal static byte[] SharpCompress {
+        internal static byte[] System_Buffers {
             get {
-                object obj = ResourceManager.GetObject("SharpCompress", resourceCulture);
+                object obj = ResourceManager.GetObject("System_Buffers", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -138,19 +138,9 @@ namespace WMMT_Toolbox.Properties {
         ///    &lt;member name=&quot;M:System.Buffers.ArrayPool`1.#ctor&quot;&gt;
         ///      &lt;summary&gt;Initializes a new instance of the &lt;see cref=&quot;T:S [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
-        internal static string System_Buffers {
+        internal static string System_Buffers1 {
             get {
-                return ResourceManager.GetString("System_Buffers", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找 System.Byte[] 类型的本地化资源。
-        /// </summary>
-        internal static byte[] System_Buffers1 {
-            get {
-                object obj = ResourceManager.GetObject("System_Buffers1", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetString("System_Buffers1", resourceCulture);
             }
         }
         

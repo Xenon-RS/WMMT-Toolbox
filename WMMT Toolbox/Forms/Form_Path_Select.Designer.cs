@@ -168,6 +168,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "游戏路径设定";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Select_Path_Closing);
             this.Load += new System.EventHandler(this.Form_Path_Select_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
