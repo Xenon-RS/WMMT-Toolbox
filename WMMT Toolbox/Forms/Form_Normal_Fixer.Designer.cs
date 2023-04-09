@@ -63,9 +63,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(13, 46);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(294, 20);
+            this.label3.Size = new System.Drawing.Size(294, 40);
             this.label3.TabIndex = 2;
-            this.label3.Text = "常见比较多的错误，可以使用以下工具修复\r\n";
+            this.label3.Text = "常见比较多的错误，可以使用以下工具修复\r\n若有新的需求可联系开发者\r\n";
             // 
             // label4
             // 

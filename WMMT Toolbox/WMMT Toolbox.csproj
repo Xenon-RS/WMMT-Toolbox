@@ -58,9 +58,34 @@
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="SharpCompress, Version=0.33.0.0, Culture=neutral, PublicKeyToken=afb0a02973931d96, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpCompress.0.33.0\lib\net462\SharpCompress.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Text.Encoding.CodePages, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encoding.CodePages.7.0.0\lib\net462\System.Text.Encoding.CodePages.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -78,6 +103,18 @@
     </Compile>
     <Compile Include="Forms\Form_About.Designer.cs">
       <DependentUpon>Form_About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_About_Software.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_About_Software.Designer.cs">
+      <DependentUpon>Form_About_Software.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_RES.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_RES.Designer.cs">
+      <DependentUpon>Form_RES.cs</DependentUpon>
     </Compile>
     <Compile Include="Form_Main.cs">
       <SubType>Form</SubType>
@@ -108,6 +145,12 @@
     <EmbeddedResource Include="Forms\Form_About.resx">
       <DependentUpon>Form_About.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_About_Software.resx">
+      <DependentUpon>Form_About_Software.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_RES.resx">
+      <DependentUpon>Form_RES.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_Main.resx">
       <DependentUpon>Form_Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -131,6 +174,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.manifest" />
+    <EmbeddedResource Include="Files\RES.7z" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -149,6 +193,28 @@
     <None Include="Resources\114514.jpg" />
     <EmbeddedResource Include="libs\Newtonsoft.Json.dll" />
     <EmbeddedResource Include="libs\Newtonsoft.Json.xml" />
+    <None Include="bin\Debug\System.Buffers.dll" />
+    <None Include="bin\Debug\System.Buffers.xml" />
+    <None Include="bin\Debug\System.Memory.dll" />
+    <None Include="bin\Debug\System.Memory.xml" />
+    <None Include="bin\Debug\System.Numerics.Vectors.dll" />
+    <None Include="bin\Debug\System.Numerics.Vectors.xml" />
+    <None Include="bin\Debug\System.Runtime.CompilerServices.Unsafe.dll" />
+    <None Include="bin\Debug\System.Runtime.CompilerServices.Unsafe.xml" />
+    <None Include="bin\Debug\System.Text.Encoding.CodePages.dll" />
+    <None Include="bin\Debug\System.Text.Encoding.CodePages.xml" />
+    <None Include="bin\Debug\SharpCompress.dll" />
+    <EmbeddedResource Include="libs\System.Buffers.xml" />
+    <EmbeddedResource Include="libs\System.Memory.dll" />
+    <EmbeddedResource Include="libs\System.Memory.xml" />
+    <EmbeddedResource Include="libs\System.Numerics.Vectors.dll" />
+    <EmbeddedResource Include="libs\System.Numerics.Vectors.xml" />
+    <EmbeddedResource Include="libs\System.Runtime.CompilerServices.Unsafe.dll" />
+    <EmbeddedResource Include="libs\System.Runtime.CompilerServices.Unsafe.xml" />
+    <EmbeddedResource Include="libs\System.Text.Encoding.CodePages.dll" />
+    <EmbeddedResource Include="libs\System.Text.Encoding.CodePages.xml" />
+    <EmbeddedResource Include="libs\SharpCompress.dll" />
+    <EmbeddedResource Include="libs\System.Buffers.dll" />
     <Content Include="WMMT6R.ico" />
   </ItemGroup>
   <ItemGroup>

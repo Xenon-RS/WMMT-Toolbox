@@ -21,6 +21,7 @@ namespace WMMT_Toolbox
         private void button_into_Click(object sender, EventArgs e)
         {
             this.Close();
+            
         }
 
         private void button_Maxi_select_Click(object sender, EventArgs e)

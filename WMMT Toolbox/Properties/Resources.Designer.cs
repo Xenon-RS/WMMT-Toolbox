@@ -104,5 +104,176 @@ namespace WMMT_Toolbox.Properties {
                 return ResourceManager.GetString("Newtonsoft_Json1", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   查找 System.Byte[] 类型的本地化资源。
+        /// </summary>
+        internal static byte[] RES {
+            get {
+                object obj = ResourceManager.GetObject("RES", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Byte[] 类型的本地化资源。
+        /// </summary>
+        internal static byte[] SharpCompress {
+            get {
+                object obj = ResourceManager.GetObject("SharpCompress", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&lt;doc&gt;
+        ///  &lt;assembly&gt;
+        ///    &lt;name&gt;System.Buffers&lt;/name&gt;
+        ///  &lt;/assembly&gt;
+        ///  &lt;members&gt;
+        ///    &lt;member name=&quot;T:System.Buffers.ArrayPool`1&quot;&gt;
+        ///      &lt;summary&gt;Provides a resource pool that enables reusing instances of type &lt;see cref=&quot;T[]&quot;&gt;&lt;/see&gt;.&lt;/summary&gt;
+        ///      &lt;typeparam name=&quot;T&quot;&gt;The type of the objects that are in the resource pool.&lt;/typeparam&gt;
+        ///    &lt;/member&gt;
+        ///    &lt;member name=&quot;M:System.Buffers.ArrayPool`1.#ctor&quot;&gt;
+        ///      &lt;summary&gt;Initializes a new instance of the &lt;see cref=&quot;T:S [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// </summary>
+        internal static string System_Buffers {
+            get {
+                return ResourceManager.GetString("System_Buffers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Byte[] 类型的本地化资源。
+        /// </summary>
+        internal static byte[] System_Buffers1 {
+            get {
+                object obj = ResourceManager.GetObject("System_Buffers1", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Byte[] 类型的本地化资源。
+        /// </summary>
+        internal static byte[] System_Memory {
+            get {
+                object obj = ResourceManager.GetObject("System_Memory", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&lt;doc&gt;
+        ///  &lt;assembly&gt;
+        ///    &lt;name&gt;System.Memory&lt;/name&gt;
+        ///  &lt;/assembly&gt;
+        ///  &lt;members&gt;
+        ///    &lt;member name=&quot;T:System.Span`1&quot;&gt;
+        ///      &lt;typeparam name=&quot;T&quot;&gt;&lt;/typeparam&gt;
+        ///    &lt;/member&gt;
+        ///    &lt;member name=&quot;M:System.Span`1.#ctor(`0[])&quot;&gt;
+        ///      &lt;param name=&quot;array&quot;&gt;&lt;/param&gt;
+        ///    &lt;/member&gt;
+        ///    &lt;member name=&quot;M:System.Span`1.#ctor(System.Void*,System.Int32)&quot;&gt;
+        ///      &lt;param name=&quot;pointer&quot;&gt;&lt;/param&gt;
+        ///      &lt;param name=&quot;length&quot;&gt;&lt;/param&gt;
+        ///    &lt;/member&gt;
+        ///    &lt;member name=&quot;M:System.Span`1.#ctor(` [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// </summary>
+        internal static string System_Memory1 {
+            get {
+                return ResourceManager.GetString("System_Memory1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Byte[] 类型的本地化资源。
+        /// </summary>
+        internal static byte[] System_Numerics_Vectors {
+            get {
+                object obj = ResourceManager.GetObject("System_Numerics_Vectors", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&lt;doc&gt;
+        ///  &lt;assembly&gt;
+        ///    &lt;name&gt;System.Numerics.Vectors&lt;/name&gt;
+        ///  &lt;/assembly&gt;
+        ///  &lt;members&gt;
+        ///    &lt;member name=&quot;T:System.Numerics.Matrix3x2&quot;&gt;
+        ///      &lt;summary&gt;Represents a 3x2 matrix.&lt;/summary&gt;
+        ///    &lt;/member&gt;
+        ///    &lt;member name=&quot;M:System.Numerics.Matrix3x2.#ctor(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)&quot;&gt;
+        ///      &lt;summary&gt;Creates a 3x2 matrix from the specified components.&lt;/summary&gt;
+        ///      &lt;param name=&quot;m11&quot;&gt;The value to assign to the [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// </summary>
+        internal static string System_Numerics_Vectors1 {
+            get {
+                return ResourceManager.GetString("System_Numerics_Vectors1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Byte[] 类型的本地化资源。
+        /// </summary>
+        internal static byte[] System_Runtime_CompilerServices_Unsafe {
+            get {
+                object obj = ResourceManager.GetObject("System_Runtime_CompilerServices_Unsafe", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;doc&gt;
+        ///  &lt;assembly&gt;
+        ///    &lt;name&gt;System.Runtime.CompilerServices.Unsafe&lt;/name&gt;
+        ///  &lt;/assembly&gt;
+        ///  &lt;members&gt;
+        ///    &lt;member name=&quot;T:System.Runtime.CompilerServices.Unsafe&quot;&gt;
+        ///      &lt;summary&gt;Contains generic, low-level functionality for manipulating pointers.&lt;/summary&gt;
+        ///    &lt;/member&gt;
+        ///    &lt;member name=&quot;M:System.Runtime.CompilerServices.Unsafe.Add``1(``0@,System.Int32)&quot;&gt;
+        ///      &lt;summary&gt;Adds an element offset to the given reference.&lt;/summary&gt;
+        ///      &lt;param name=&quot;source&quot;&gt;The re [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// </summary>
+        internal static string System_Runtime_CompilerServices_Unsafe1 {
+            get {
+                return ResourceManager.GetString("System_Runtime_CompilerServices_Unsafe1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Byte[] 类型的本地化资源。
+        /// </summary>
+        internal static byte[] System_Text_Encoding_CodePages {
+            get {
+                object obj = ResourceManager.GetObject("System_Text_Encoding_CodePages", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;doc&gt;
+        ///  &lt;assembly&gt;
+        ///    &lt;name&gt;System.Text.Encoding.CodePages&lt;/name&gt;
+        ///  &lt;/assembly&gt;
+        ///  &lt;members&gt;
+        ///    &lt;member name=&quot;T:System.Text.CodePagesEncodingProvider&quot;&gt;
+        ///      &lt;summary&gt;Provides access to an encoding provider for code pages that otherwise are available only in the desktop .NET Framework.&lt;/summary&gt;
+        ///    &lt;/member&gt;
+        ///    &lt;member name=&quot;M:System.Text.CodePagesEncodingProvider.GetEncoding(System.Int32)&quot;&gt;
+        ///      &lt;summary&gt;Returns the encoding associated with the specified [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// </summary>
+        internal static string System_Text_Encoding_CodePages1 {
+            get {
+                return ResourceManager.GetString("System_Text_Encoding_CodePages1", resourceCulture);
+            }
+        }
     }
 }

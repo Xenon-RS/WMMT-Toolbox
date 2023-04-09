@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
 using System.Security.Principal;
 using System.Text.RegularExpressions;
 using System.Xml;
+using SharpCompress.Archives;
+using System.Reflection;
 
 namespace WMMT_Toolbox
 {
@@ -62,69 +58,65 @@ namespace WMMT_Toolbox
                 {
                     Path_TP.Text = TP_line;
                 }
-            }
-            else
-            {
-                Console.WriteLine("error");
-            }
 
-            
+                //删除路径的exe
+                string TP_Profiles_path_mid = Path_TP.Text.Replace("\\TeknoParrotUi.exe", "");
 
-            //删除路径的exe
-            string TP_Profiles_path_mid = Path_TP.Text.Replace("\\TeknoParrotUi.exe", "");
+                //合并路径
+                string TP_Profiles_path = TP_Profiles_path_mid + "\\UserProfiles\\WMMT6R.xml";
 
-            //合并路径
-            string TP_Profiles_path = TP_Profiles_path_mid + "\\UserProfiles\\WMMT6R.xml";
+                // 读取文本文件
+                string fileName = TP_Profiles_path;
+                string[] lines = File.ReadAllLines(fileName);
 
-            // 读取文本文件
-            string fileName = TP_Profiles_path;
-            string[] lines = File.ReadAllLines(fileName);
+                // 定义要查找的行和替换的内容
+                int lineNumber = -1; // -1 表示未找到指定的文本
+                string searchText = "      <FieldName>TerminalMode</FieldName>";
 
-            // 定义要查找的行和替换的内容
-            int lineNumber = -1; // -1 表示未找到指定的文本
-            string searchText = "      <FieldName>TerminalMode</FieldName>";
-
-            // 查找指定文本的行号
-            for (int i = 0; i < lines.Length; i++)
-            {
-                if (lines[i].Contains(searchText))
+                // 查找指定文本的行号
+                for (int i = 0; i < lines.Length; i++)
                 {
-                    lineNumber = i;
-                    break;
-                }
-            }
-
-            if (lineNumber != -1 && lineNumber + 1 < lines.Length)
-            {
-                string line = lines[lineNumber + 1];
-                XmlDocument doc = new XmlDocument();
-                doc.LoadXml(line);
-                XmlNode node = doc.SelectSingleNode("/FieldValue");
-                if (node != null)
-                {
-                    string fieldValue = node.InnerText;
-                    Console.WriteLine(fieldValue);
-                    if (fieldValue == "1")
+                    if (lines[i].Contains(searchText))
                     {
-                        checkBox_Terminal.Checked = true;
+                        lineNumber = i;
+                        break;
+                    }
+                }
+
+                if (lineNumber != -1 && lineNumber + 1 < lines.Length)
+                {
+                    string line = lines[lineNumber + 1];
+                    XmlDocument doc = new XmlDocument();
+                    doc.LoadXml(line);
+                    XmlNode node = doc.SelectSingleNode("/FieldValue");
+                    if (node != null)
+                    {
+                        string fieldValue = node.InnerText;
+                        Console.WriteLine(fieldValue);
+                        if (fieldValue == "1")
+                        {
+                            checkBox_Terminal.Checked = true;
+                        }
+                        else
+                        {
+                            checkBox_Terminal.Checked = false;
+                        }
                     }
                     else
                     {
-                        checkBox_Terminal.Checked = false;
+                        Console.WriteLine("error");
                     }
                 }
                 else
                 {
                     Console.WriteLine("error");
                 }
+
             }
             else
             {
                 Console.WriteLine("error");
             }
-
-
-
         }
 
         //调用管理员权限部分1
@@ -394,20 +386,20 @@ namespace WMMT_Toolbox
                 sw_Start.WriteLine(Start_info);
                 sw_Start.Close();
 
+                Console.WriteLine(first_time_load);
 
+                if (first_time_load == "true")
+                {
+                    Form_Path_Select form_Path_Select = new Form_Path_Select();
+                    form_Path_Select.ShowDialog();
+                }
+                else
+                {
+                    Console.WriteLine("114514");
+                }
             }
 
-            Console.WriteLine(first_time_load);
-
-            if(first_time_load == "true")
-            {
-                Form_Path_Select form_Path_Select = new Form_Path_Select();
-                form_Path_Select.ShowDialog();
-            }
-            else
-            {
-                Console.WriteLine("114514");
-            }
+            
 
         }
 
@@ -698,6 +690,204 @@ namespace WMMT_Toolbox
         {
             Form_Normal_Fixer form_Normal_Fixer = new Form_Normal_Fixer();
             form_Normal_Fixer.ShowDialog();
+        }
+
+        private void button_res_Click(object sender, EventArgs e)
+        {
+            //解压：首先获取WMMTLauncher的路径
+            string path2 = System.Environment.UserName;
+            string path1, path3;
+            path1 = @"C:\Users\";
+            path3 = "AppData\\Local\\WMMT-Toolbox\\RES";
+            string full_path = Path.Combine(path1, path2, path3);
+
+            //解压：用Readme做判断
+            string UNZIP_path1 = full_path;
+            string UNZIP_path2 = "Readme.txt";
+            string full_UNZIP_path = Path.Combine(UNZIP_path1, UNZIP_path2);
+
+            //解压：RES
+            string RES_path1 = full_path;
+            string RES_path2 = "RES.7z";
+            string full_RES_path = Path.Combine(RES_path1, RES_path2);
+
+            //判断文件夹是否存在，没有就创建
+            DirectoryInfo directoryInfo = new DirectoryInfo(full_path);
+            if (!directoryInfo.Exists)
+            {
+                directoryInfo.Create();
+            }
+
+            //解压分辨率文件
+            if (System.IO.File.Exists(full_UNZIP_path))
+            {
+                Console.WriteLine("找到了分辨率文件");
+            }
+            else
+            {
+                Console.WriteLine("没找到分辨率文件");
+
+                //从启动器中抽取RES文件
+                BufferedStream inStream = null;
+                FileStream outStream = null;
+                try
+                {
+                    Assembly asm = Assembly.GetExecutingAssembly();
+                    inStream = new BufferedStream(asm.GetManifestResourceStream("WMMT_Toolbox.Files.RES.7z"));
+                    outStream = new FileStream(full_RES_path, FileMode.Create, FileAccess.Write);
+
+                    byte[] buffer = new byte[1024];
+                    int length;
+
+                    while ((length = inStream.Read(buffer, 0, buffer.Length)) > 0)
+                    {
+                        outStream.Write(buffer, 0, length);
+                    }
+                    outStream.Flush();
+                }
+                finally
+                {
+                    if (outStream != null)
+                    {
+                        outStream.Close();
+                    }
+                    if (inStream != null)
+                    {
+                        inStream.Close();
+                    }
+                }
+                //抽取END
+
+                //解压
+                MessageBox.Show("由于您是第一次使用分辨率修改，请等待启动器部署完毕\n部署完毕后将自动弹出分辨率修改窗口");
+                SharpCompress.Readers.ReaderOptions options = new SharpCompress.Readers.ReaderOptions();
+                options.ArchiveEncoding.Default = Encoding.GetEncoding("UTF-8");
+                IArchive Archive = ArchiveFactory.Open(full_RES_path, options);
+                foreach (IArchiveEntry ArchiveEntry in Archive.Entries)
+                {
+                    if (!ArchiveEntry.IsDirectory)
+                    {
+                        ArchiveEntry.WriteToDirectory(full_path, new SharpCompress.Common.ExtractionOptions { ExtractFullPath = true, Overwrite = true });
+                    }
+                }
+
+            }
+
+            //打开窗口
+            Forms.Form_RES res = new Forms.Form_RES();
+            res.ShowDialog();
+        }
+
+        private void res_ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //解压：首先获取WMMTLauncher的路径
+            string path2 = System.Environment.UserName;
+            string path1, path3;
+            path1 = @"C:\Users\";
+            path3 = "AppData\\Local\\WMMT-Toolbox\\RES";
+            string full_path = Path.Combine(path1, path2, path3);
+
+            //解压：用Readme做判断
+            string UNZIP_path1 = full_path;
+            string UNZIP_path2 = "Readme.txt";
+            string full_UNZIP_path = Path.Combine(UNZIP_path1, UNZIP_path2);
+
+            //解压：RES
+            string RES_path1 = full_path;
+            string RES_path2 = "RES.7z";
+            string full_RES_path = Path.Combine(RES_path1, RES_path2);
+
+            //判断文件夹是否存在，没有就创建
+            DirectoryInfo directoryInfo = new DirectoryInfo(full_path);
+            if (!directoryInfo.Exists)
+            {
+                directoryInfo.Create();
+            }
+
+            //解压分辨率文件
+            if (System.IO.File.Exists(full_UNZIP_path))
+            {
+                Console.WriteLine("找到了分辨率文件");
+            }
+            else
+            {
+                Console.WriteLine("没找到分辨率文件");
+
+                //从启动器中抽取RES文件
+                BufferedStream inStream = null;
+                FileStream outStream = null;
+                try
+                {
+                    Assembly asm = Assembly.GetExecutingAssembly();
+                    inStream = new BufferedStream(asm.GetManifestResourceStream("WMMT_Toolbox.Files.RES.7z"));
+                    outStream = new FileStream(full_RES_path, FileMode.Create, FileAccess.Write);
+
+                    byte[] buffer = new byte[1024];
+                    int length;
+
+                    while ((length = inStream.Read(buffer, 0, buffer.Length)) > 0)
+                    {
+                        outStream.Write(buffer, 0, length);
+                    }
+                    outStream.Flush();
+                }
+                finally
+                {
+                    if (outStream != null)
+                    {
+                        outStream.Close();
+                    }
+                    if (inStream != null)
+                    {
+                        inStream.Close();
+                    }
+                }
+                //抽取END
+
+                //解压
+                MessageBox.Show("由于您是第一次使用分辨率修改，请等待启动器部署完毕\n部署完毕后将自动弹出分辨率修改窗口");
+                SharpCompress.Readers.ReaderOptions options = new SharpCompress.Readers.ReaderOptions();
+                options.ArchiveEncoding.Default = Encoding.GetEncoding("UTF-8");
+                IArchive Archive = ArchiveFactory.Open(full_RES_path, options);
+                foreach (IArchiveEntry ArchiveEntry in Archive.Entries)
+                {
+                    if (!ArchiveEntry.IsDirectory)
+                    {
+                        ArchiveEntry.WriteToDirectory(full_path, new SharpCompress.Common.ExtractionOptions { ExtractFullPath = true, Overwrite = true });
+                    }
+                }
+
+            }
+
+            //打开窗口
+            Forms.Form_RES res = new Forms.Form_RES();
+            res.ShowDialog();
+        }
+
+        private void card_ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("还在开发捏~");
+        }
+
+        private void maxiTerminal_ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("还在开发捏~");
+        }
+
+        private void teknoParrot_ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("还在开发捏~");
+        }
+
+        private void About_ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void About_Software_ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Forms.Form_About_Software form_About_Software = new Forms.Form_About_Software();
+            form_About_Software.ShowDialog();
         }
     }
 }

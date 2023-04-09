@@ -34,9 +34,9 @@
             this.Net_fix_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.res_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.card_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Fixer_Normal_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Setting_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.maxiTerminal_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aMAuthdexe_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.teknoParrot_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.About_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.developer_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,7 +60,9 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.checkBox_Terminal = new System.Windows.Forms.CheckBox();
-            this.Fixer_Normal_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button_res = new System.Windows.Forms.Button();
+            this.button_card = new System.Windows.Forms.Button();
+            this.About_Software_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -100,18 +102,26 @@
             this.res_ToolStripMenuItem.Name = "res_ToolStripMenuItem";
             this.res_ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.res_ToolStripMenuItem.Text = "分辨率修改";
+            this.res_ToolStripMenuItem.Click += new System.EventHandler(this.res_ToolStripMenuItem_Click);
             // 
             // card_ToolStripMenuItem
             // 
             this.card_ToolStripMenuItem.Name = "card_ToolStripMenuItem";
             this.card_ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.card_ToolStripMenuItem.Text = "刷卡键修改";
+            this.card_ToolStripMenuItem.Click += new System.EventHandler(this.card_ToolStripMenuItem_Click);
+            // 
+            // Fixer_Normal_ToolStripMenuItem
+            // 
+            this.Fixer_Normal_ToolStripMenuItem.Name = "Fixer_Normal_ToolStripMenuItem";
+            this.Fixer_Normal_ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.Fixer_Normal_ToolStripMenuItem.Text = "常见问题修复工具";
+            this.Fixer_Normal_ToolStripMenuItem.Click += new System.EventHandler(this.Fixer_Normal_ToolStripMenuItem_Click);
             // 
             // Setting_ToolStripMenuItem
             // 
             this.Setting_ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.maxiTerminal_ToolStripMenuItem,
-            this.aMAuthdexe_ToolStripMenuItem,
             this.teknoParrot_ToolStripMenuItem});
             this.Setting_ToolStripMenuItem.Name = "Setting_ToolStripMenuItem";
             this.Setting_ToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
@@ -122,26 +132,24 @@
             this.maxiTerminal_ToolStripMenuItem.Name = "maxiTerminal_ToolStripMenuItem";
             this.maxiTerminal_ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.maxiTerminal_ToolStripMenuItem.Text = "Maxi Terminal设置";
-            // 
-            // aMAuthdexe_ToolStripMenuItem
-            // 
-            this.aMAuthdexe_ToolStripMenuItem.Name = "aMAuthdexe_ToolStripMenuItem";
-            this.aMAuthdexe_ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.aMAuthdexe_ToolStripMenuItem.Text = "AMAuthd.exe设置";
+            this.maxiTerminal_ToolStripMenuItem.Click += new System.EventHandler(this.maxiTerminal_ToolStripMenuItem_Click);
             // 
             // teknoParrot_ToolStripMenuItem
             // 
             this.teknoParrot_ToolStripMenuItem.Name = "teknoParrot_ToolStripMenuItem";
             this.teknoParrot_ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.teknoParrot_ToolStripMenuItem.Text = "TeknoParrot设置";
+            this.teknoParrot_ToolStripMenuItem.Click += new System.EventHandler(this.teknoParrot_ToolStripMenuItem_Click);
             // 
             // About_ToolStripMenuItem
             // 
             this.About_ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.developer_ToolStripMenuItem});
+            this.developer_ToolStripMenuItem,
+            this.About_Software_ToolStripMenuItem});
             this.About_ToolStripMenuItem.Name = "About_ToolStripMenuItem";
             this.About_ToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
             this.About_ToolStripMenuItem.Text = "关于";
+            this.About_ToolStripMenuItem.Click += new System.EventHandler(this.About_ToolStripMenuItem_Click);
             // 
             // developer_ToolStripMenuItem
             // 
@@ -371,18 +379,41 @@
             this.checkBox_Terminal.UseVisualStyleBackColor = true;
             this.checkBox_Terminal.CheckedChanged += new System.EventHandler(this.checkBox_Terminal_CheckedChanged);
             // 
-            // Fixer_Normal_ToolStripMenuItem
+            // button_res
             // 
-            this.Fixer_Normal_ToolStripMenuItem.Name = "Fixer_Normal_ToolStripMenuItem";
-            this.Fixer_Normal_ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.Fixer_Normal_ToolStripMenuItem.Text = "常见问题修复工具";
-            this.Fixer_Normal_ToolStripMenuItem.Click += new System.EventHandler(this.Fixer_Normal_ToolStripMenuItem_Click);
+            this.button_res.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button_res.Location = new System.Drawing.Point(214, 411);
+            this.button_res.Name = "button_res";
+            this.button_res.Size = new System.Drawing.Size(187, 36);
+            this.button_res.TabIndex = 22;
+            this.button_res.Text = "游戏分辨率修改";
+            this.button_res.UseVisualStyleBackColor = true;
+            this.button_res.Click += new System.EventHandler(this.button_res_Click);
+            // 
+            // button_card
+            // 
+            this.button_card.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button_card.Location = new System.Drawing.Point(215, 453);
+            this.button_card.Name = "button_card";
+            this.button_card.Size = new System.Drawing.Size(186, 36);
+            this.button_card.TabIndex = 23;
+            this.button_card.Text = "刷卡键修改";
+            this.button_card.UseVisualStyleBackColor = true;
+            // 
+            // About_Software_ToolStripMenuItem
+            // 
+            this.About_Software_ToolStripMenuItem.Name = "About_Software_ToolStripMenuItem";
+            this.About_Software_ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.About_Software_ToolStripMenuItem.Text = "关于工具箱";
+            this.About_Software_ToolStripMenuItem.Click += new System.EventHandler(this.About_Software_ToolStripMenuItem_Click);
             // 
             // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(624, 591);
+            this.Controls.Add(this.button_card);
+            this.Controls.Add(this.button_res);
             this.Controls.Add(this.checkBox_Terminal);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -425,7 +456,6 @@
         private System.Windows.Forms.ToolStripMenuItem Net_fix_ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem Setting_ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem maxiTerminal_ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aMAuthdexe_ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem teknoParrot_ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem About_ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem developer_ToolStripMenuItem;
@@ -452,6 +482,9 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.CheckBox checkBox_Terminal;
         private System.Windows.Forms.ToolStripMenuItem Fixer_Normal_ToolStripMenuItem;
+        private System.Windows.Forms.Button button_res;
+        private System.Windows.Forms.Button button_card;
+        private System.Windows.Forms.ToolStripMenuItem About_Software_ToolStripMenuItem;
     }
 }
 
