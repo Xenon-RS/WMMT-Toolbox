@@ -30,17 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Main));
             this.menuStrip = new System.Windows.Forms.MenuStrip();
-            this.工具ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Tool_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Net_fix_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.Server_change_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.res_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.card_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Setting_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.maxiTerminal_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aMAuthdexe_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.teknoParrot_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.Toolbox_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.About_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.developer_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -62,6 +60,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.checkBox_Terminal = new System.Windows.Forms.CheckBox();
+            this.Fixer_Normal_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,60 +68,54 @@
             // 
             this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.工具ToolStripMenuItem,
-            this.设置ToolStripMenuItem,
-            this.关于ToolStripMenuItem});
+            this.Tool_ToolStripMenuItem,
+            this.Setting_ToolStripMenuItem,
+            this.About_ToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(624, 28);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip1";
             // 
-            // 工具ToolStripMenuItem
+            // Tool_ToolStripMenuItem
             // 
-            this.工具ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Tool_ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Net_fix_ToolStripMenuItem,
-            this.Server_change_ToolStripMenuItem,
             this.res_ToolStripMenuItem,
-            this.card_ToolStripMenuItem});
-            this.工具ToolStripMenuItem.Name = "工具ToolStripMenuItem";
-            this.工具ToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
-            this.工具ToolStripMenuItem.Text = "工具";
+            this.card_ToolStripMenuItem,
+            this.Fixer_Normal_ToolStripMenuItem});
+            this.Tool_ToolStripMenuItem.Name = "Tool_ToolStripMenuItem";
+            this.Tool_ToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
+            this.Tool_ToolStripMenuItem.Text = "工具";
             // 
             // Net_fix_ToolStripMenuItem
             // 
             this.Net_fix_ToolStripMenuItem.Name = "Net_fix_ToolStripMenuItem";
-            this.Net_fix_ToolStripMenuItem.Size = new System.Drawing.Size(182, 26);
+            this.Net_fix_ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.Net_fix_ToolStripMenuItem.Text = "网络修复工具";
-            // 
-            // Server_change_ToolStripMenuItem
-            // 
-            this.Server_change_ToolStripMenuItem.Name = "Server_change_ToolStripMenuItem";
-            this.Server_change_ToolStripMenuItem.Size = new System.Drawing.Size(182, 26);
-            this.Server_change_ToolStripMenuItem.Text = "服务器更换";
+            this.Net_fix_ToolStripMenuItem.Click += new System.EventHandler(this.Net_fix_ToolStripMenuItem_Click);
             // 
             // res_ToolStripMenuItem
             // 
             this.res_ToolStripMenuItem.Name = "res_ToolStripMenuItem";
-            this.res_ToolStripMenuItem.Size = new System.Drawing.Size(182, 26);
+            this.res_ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.res_ToolStripMenuItem.Text = "分辨率修改";
             // 
             // card_ToolStripMenuItem
             // 
             this.card_ToolStripMenuItem.Name = "card_ToolStripMenuItem";
-            this.card_ToolStripMenuItem.Size = new System.Drawing.Size(182, 26);
+            this.card_ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.card_ToolStripMenuItem.Text = "刷卡键修改";
             // 
-            // 设置ToolStripMenuItem
+            // Setting_ToolStripMenuItem
             // 
-            this.设置ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Setting_ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.maxiTerminal_ToolStripMenuItem,
             this.aMAuthdexe_ToolStripMenuItem,
-            this.teknoParrot_ToolStripMenuItem,
-            this.Toolbox_ToolStripMenuItem});
-            this.设置ToolStripMenuItem.Name = "设置ToolStripMenuItem";
-            this.设置ToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
-            this.设置ToolStripMenuItem.Text = "设置";
+            this.teknoParrot_ToolStripMenuItem});
+            this.Setting_ToolStripMenuItem.Name = "Setting_ToolStripMenuItem";
+            this.Setting_ToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
+            this.Setting_ToolStripMenuItem.Text = "设置";
             // 
             // maxiTerminal_ToolStripMenuItem
             // 
@@ -142,25 +135,20 @@
             this.teknoParrot_ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.teknoParrot_ToolStripMenuItem.Text = "TeknoParrot设置";
             // 
-            // Toolbox_ToolStripMenuItem
+            // About_ToolStripMenuItem
             // 
-            this.Toolbox_ToolStripMenuItem.Name = "Toolbox_ToolStripMenuItem";
-            this.Toolbox_ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.Toolbox_ToolStripMenuItem.Text = "本工具箱设置";
-            // 
-            // 关于ToolStripMenuItem
-            // 
-            this.关于ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.About_ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.developer_ToolStripMenuItem});
-            this.关于ToolStripMenuItem.Name = "关于ToolStripMenuItem";
-            this.关于ToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
-            this.关于ToolStripMenuItem.Text = "关于";
+            this.About_ToolStripMenuItem.Name = "About_ToolStripMenuItem";
+            this.About_ToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
+            this.About_ToolStripMenuItem.Text = "关于";
             // 
             // developer_ToolStripMenuItem
             // 
             this.developer_ToolStripMenuItem.Name = "developer_ToolStripMenuItem";
-            this.developer_ToolStripMenuItem.Size = new System.Drawing.Size(167, 26);
+            this.developer_ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.developer_ToolStripMenuItem.Text = "关于开发者";
+            this.developer_ToolStripMenuItem.Click += new System.EventHandler(this.developer_ToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -192,6 +180,7 @@
             this.button_game_start.TabIndex = 3;
             this.button_game_start.Text = "启动游戏";
             this.button_game_start.UseVisualStyleBackColor = true;
+            this.button_game_start.Click += new System.EventHandler(this.button_game_start_Click);
             // 
             // checkBox_maxi
             // 
@@ -338,6 +327,7 @@
             this.button_bug_fixer.TabIndex = 16;
             this.button_bug_fixer.Text = "游戏补丁安装器";
             this.button_bug_fixer.UseVisualStyleBackColor = true;
+            this.button_bug_fixer.Click += new System.EventHandler(this.button_bug_fixer_Click);
             // 
             // label6
             // 
@@ -381,6 +371,13 @@
             this.checkBox_Terminal.UseVisualStyleBackColor = true;
             this.checkBox_Terminal.CheckedChanged += new System.EventHandler(this.checkBox_Terminal_CheckedChanged);
             // 
+            // Fixer_Normal_ToolStripMenuItem
+            // 
+            this.Fixer_Normal_ToolStripMenuItem.Name = "Fixer_Normal_ToolStripMenuItem";
+            this.Fixer_Normal_ToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.Fixer_Normal_ToolStripMenuItem.Text = "常见问题修复工具";
+            this.Fixer_Normal_ToolStripMenuItem.Click += new System.EventHandler(this.Fixer_Normal_ToolStripMenuItem_Click);
+            // 
             // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -412,6 +409,7 @@
             this.Name = "Form_Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "WMMT Toolbox";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Main_FormClosing);
             this.Load += new System.EventHandler(this.Form_Main_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
@@ -423,15 +421,13 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip;
-        private System.Windows.Forms.ToolStripMenuItem 工具ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Tool_ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem Net_fix_ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem Server_change_ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 设置ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Setting_ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem maxiTerminal_ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aMAuthdexe_ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem teknoParrot_ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem Toolbox_ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 关于ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem About_ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem developer_ToolStripMenuItem;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem res_ToolStripMenuItem;
@@ -455,6 +451,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.CheckBox checkBox_Terminal;
+        private System.Windows.Forms.ToolStripMenuItem Fixer_Normal_ToolStripMenuItem;
     }
 }
 

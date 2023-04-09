@@ -338,7 +338,26 @@ namespace WMMT_Toolbox
                     //设定修改完毕
                     string router_net_fix = "true";
 
-                    if(networkadapter_net_fix == "true" && terminal_net_fix == "true" && router_net_fix == "true")
+                    //检查修改了xml后有没有bug（一般是第一行少了字符）
+                    string filePath = TP_Profiles_path;
+                    string expectedFirstLine = "<?xml version=\"1.0\" encoding=\"utf-8\"?>"; //第一行的
+
+                    // Read the first line of the file
+                    string actualFirstLine = File.ReadLines(filePath).First();
+
+                    if (actualFirstLine == expectedFirstLine)
+                    {
+                        Console.WriteLine("一样，没有bug");
+                    }
+                    else
+                    {
+                        // Replace the first line with the expected string
+                        string[] BUG_lines = File.ReadAllLines(filePath);
+                        BUG_lines[0] = expectedFirstLine;
+                        File.WriteAllLines(filePath, BUG_lines);
+                    }
+
+                    if (networkadapter_net_fix == "true" && terminal_net_fix == "true" && router_net_fix == "true")
                     {
                         DialogResult fix =  MessageBox.Show("TeknoParrot网络修复完毕", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         if (fix == DialogResult.Yes)

@@ -597,5 +597,107 @@ namespace WMMT_Toolbox
             }
 
         }
+
+        private void developer_ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_About about = new Form_About();
+            about.ShowDialog();
+        }
+
+        private void button_game_start_Click(object sender, EventArgs e)
+        {
+            //启动Maxi
+            if (checkBox_maxi.Checked == true && Path_Maxi.Text != null)
+            {
+                string Maxi_line_1 = Path_Maxi.Text;
+                Process pro = new Process();
+                FileInfo file = new FileInfo(Maxi_line_1);
+                pro.StartInfo.WorkingDirectory = file.DirectoryName;
+                pro.StartInfo.FileName = Maxi_line_1;
+                pro.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Minimized;
+                pro.StartInfo.CreateNoWindow = false;
+                pro.Start();
+            }
+            else
+            {
+                Console.WriteLine("用户选择不启动maxi");
+            }
+
+            //启动AMA
+            if (checkBox_AMA.Checked == true && Path_AMA.Text != null)
+            {
+                string AMA_line_1 = Path_AMA.Text;
+                Process pro = new Process();
+                FileInfo file = new FileInfo(AMA_line_1);
+                pro.StartInfo.WorkingDirectory = file.DirectoryName;
+                pro.StartInfo.FileName = AMA_line_1;
+                pro.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Minimized;
+                pro.StartInfo.CreateNoWindow = false;
+                pro.Start();
+            }
+            else
+            {
+                Console.WriteLine("用户选择不启动AMA");
+            }
+
+            //启动TP
+            if (checkBox_TP.Checked == true && Path_TP.Text != null)
+            {
+                string TP_line_1 = Path_TP.Text;
+                Process pro = new Process();
+                FileInfo file = new FileInfo(TP_line_1);
+                pro.StartInfo.WorkingDirectory = file.DirectoryName;
+                pro.StartInfo.FileName = TP_line_1;
+                pro.StartInfo.CreateNoWindow = false;
+                pro.Start();
+            }
+            else
+            {
+                Console.WriteLine("用户选择不启动TP");
+            }
+
+            //如果全都是false
+            if (checkBox_maxi.Checked == false && checkBox_AMA.Checked == false && checkBox_TP.Checked == false)
+            {
+                MessageBox.Show("您没有勾选任何启动选项，因此什么都不会启动");
+            }
+        }
+
+        private void button_bug_fixer_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("还在开发捏~");
+        }
+
+        private void Form_Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            
+        }
+
+        private void Net_fix_ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!IsAdministrator())
+            {
+                DialogResult result = MessageBox.Show("该操作需要使用管理员权限\n请接下来给予软件管理员权限\n给予后软件将会重新启动\n然后重新点击“游戏网络快速修复”按钮即可进入界面", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    // 如果当前用户不是管理员，则申请管理员权限
+                    RunAsAdmin(System.Reflection.Assembly.GetExecutingAssembly().Location);
+                    this.Close();
+                    return;
+                }
+            }
+            else
+            {
+                Form_Net form_Net_Fix = new Form_Net();
+                form_Net_Fix.ShowDialog();
+                Console.WriteLine("已获得管理员权限");
+            }
+        }
+
+        private void Fixer_Normal_ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_Normal_Fixer form_Normal_Fixer = new Form_Normal_Fixer();
+            form_Normal_Fixer.ShowDialog();
+        }
     }
 }
