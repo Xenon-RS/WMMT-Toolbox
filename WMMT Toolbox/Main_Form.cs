@@ -5,6 +5,8 @@ using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using WMMT_Toolbox.Forms;
+using XmlHelper;
 
 namespace WMMT_Toolbox
 {
@@ -41,7 +43,31 @@ namespace WMMT_Toolbox
             checkBox_AMA_Start.Checked = Convert.ToBoolean(AMA_Start_state);
             checkBox_TP_Start.Checked = Convert.ToBoolean(TP_Start_state);
 
-            
+            //读取TP的UserProfiles
+            string TP_User_XML_Path = TP_Paths.Replace("TeknoParrotUi.exe", "UserProfiles\\WMMT6R.xml");
+            if(System.IO.File.Exists(TP_User_XML_Path))
+            {
+                checkBox_Terminal_Mode.Enabled = true;
+                //读取终端机中选项
+                XmlHelper.XmlManager xmlManager = new XmlHelper.XmlManager(TP_User_XML_Path);
+                string terminalMode = xmlManager.ReadXmlFieldValue("TerminalMode");
+                Console.WriteLine(terminalMode);
+                if(terminalMode == "1")
+                {
+                    checkBox_Terminal_Mode.Checked = true;
+                }
+                else
+                {
+                    checkBox_Terminal_Mode.Checked = false;
+                }
+            }
+            else
+            {
+                Console.WriteLine("用户没有配置好TP的路径，使终端机的Checkbox不可用");
+                checkBox_Terminal_Mode.Enabled = false;
+            }
+
+
 
         }
 
@@ -206,6 +232,36 @@ namespace WMMT_Toolbox
         private void checkBox_TP_Start_CheckedChanged(object sender, EventArgs e)
         {
             checkBox_Change_Write_ToIni("StartUpState", "TP_State", checkBox_TP_Start.Checked);
+        }
+
+        private void About_ME_ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_About form_About = new Form_About();
+            form_About.ShowDialog();
+        }
+
+        private void Server_ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_Server form_Server = new Form_Server();
+            form_Server.ShowDialog();
+        }
+
+        private void checkBox_Terminal_Mode_CheckedChanged(object sender, EventArgs e)
+        {
+            string toolbox_ini_path = Path.Combine(Application.StartupPath, "Toolbox_Settings.ini"); //ini路径
+            IniFile read_ini = new IniFile(toolbox_ini_path);
+            string TP_Paths = read_ini.ReadValue("Paths", "TP");
+            string TP_User_XML_Path = TP_Paths.Replace("TeknoParrotUi.exe", "UserProfiles\\WMMT6R.xml");
+
+            XmlHelper.XmlManager xmlManager = new XmlHelper.XmlManager(TP_User_XML_Path);
+            if(checkBox_Terminal_Mode.Checked == true)
+            {
+                xmlManager.WriteXmlFieldValue("TerminalMode", "1");
+            }
+            else
+            {
+                xmlManager.WriteXmlFieldValue("TerminalMode", "0");
+            }         
         }
     }
 }

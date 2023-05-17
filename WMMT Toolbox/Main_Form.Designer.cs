@@ -30,7 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_Form));
             this.menuStrip = new System.Windows.Forms.MenuStrip();
-            this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.About_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.About_ME_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Server_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl_Game = new System.Windows.Forms.TabControl();
             this.tabPage_Main = new System.Windows.Forms.TabPage();
             this.label4 = new System.Windows.Forms.Label();
@@ -52,12 +54,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl_Settings = new System.Windows.Forms.TabControl();
             this.tabPage_Tools = new System.Windows.Forms.TabPage();
-            this.tabPage_Maxi = new System.Windows.Forms.TabPage();
-            this.label5 = new System.Windows.Forms.Label();
-            this.button_res = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.button_net_fix = new System.Windows.Forms.Button();
             this.button_card = new System.Windows.Forms.Button();
+            this.button_net_fix = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.button_res = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tabPage_Maxi = new System.Windows.Forms.TabPage();
+            this.checkBox_Terminal_Mode = new System.Windows.Forms.CheckBox();
             this.menuStrip.SuspendLayout();
             this.tabControl_Game.SuspendLayout();
             this.tabPage_Main.SuspendLayout();
@@ -71,7 +74,7 @@
             this.menuStrip.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.关于ToolStripMenuItem});
+            this.About_ToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
@@ -79,27 +82,45 @@
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip1";
             // 
-            // 关于ToolStripMenuItem
+            // About_ToolStripMenuItem
             // 
-            this.关于ToolStripMenuItem.Name = "关于ToolStripMenuItem";
-            this.关于ToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
-            this.关于ToolStripMenuItem.Text = "关于";
+            this.About_ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.About_ME_ToolStripMenuItem,
+            this.Server_ToolStripMenuItem});
+            this.About_ToolStripMenuItem.Name = "About_ToolStripMenuItem";
+            this.About_ToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
+            this.About_ToolStripMenuItem.Text = "关于";
+            // 
+            // About_ME_ToolStripMenuItem
+            // 
+            this.About_ME_ToolStripMenuItem.Name = "About_ME_ToolStripMenuItem";
+            this.About_ME_ToolStripMenuItem.Size = new System.Drawing.Size(167, 26);
+            this.About_ME_ToolStripMenuItem.Text = "关于作者";
+            this.About_ME_ToolStripMenuItem.Click += new System.EventHandler(this.About_ME_ToolStripMenuItem_Click);
+            // 
+            // Server_ToolStripMenuItem
+            // 
+            this.Server_ToolStripMenuItem.Name = "Server_ToolStripMenuItem";
+            this.Server_ToolStripMenuItem.Size = new System.Drawing.Size(167, 26);
+            this.Server_ToolStripMenuItem.Text = "友情服务器";
+            this.Server_ToolStripMenuItem.Click += new System.EventHandler(this.Server_ToolStripMenuItem_Click);
             // 
             // tabControl_Game
             // 
             this.tabControl_Game.Controls.Add(this.tabPage_Main);
             this.tabControl_Game.Controls.Add(this.tabPage_gp_Setting);
             this.tabControl_Game.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tabControl_Game.Location = new System.Drawing.Point(12, 347);
+            this.tabControl_Game.Location = new System.Drawing.Point(12, 335);
             this.tabControl_Game.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabControl_Game.Name = "tabControl_Game";
             this.tabControl_Game.SelectedIndex = 0;
-            this.tabControl_Game.Size = new System.Drawing.Size(360, 204);
+            this.tabControl_Game.Size = new System.Drawing.Size(360, 216);
             this.tabControl_Game.TabIndex = 1;
             // 
             // tabPage_Main
             // 
             this.tabPage_Main.BackColor = System.Drawing.Color.White;
+            this.tabPage_Main.Controls.Add(this.checkBox_Terminal_Mode);
             this.tabPage_Main.Controls.Add(this.label4);
             this.tabPage_Main.Controls.Add(this.checkBox_Maxi_Start);
             this.tabPage_Main.Controls.Add(this.checkBox_AMA_Start);
@@ -111,7 +132,7 @@
             this.tabPage_Main.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage_Main.Name = "tabPage_Main";
             this.tabPage_Main.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage_Main.Size = new System.Drawing.Size(352, 171);
+            this.tabPage_Main.Size = new System.Drawing.Size(352, 183);
             this.tabPage_Main.TabIndex = 0;
             this.tabPage_Main.Text = "游戏启动";
             // 
@@ -119,7 +140,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(1, 22);
+            this.label4.Location = new System.Drawing.Point(1, 4);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(84, 25);
             this.label4.TabIndex = 5;
@@ -130,7 +151,7 @@
             this.checkBox_Maxi_Start.AutoSize = true;
             this.checkBox_Maxi_Start.Checked = true;
             this.checkBox_Maxi_Start.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox_Maxi_Start.Location = new System.Drawing.Point(6, 50);
+            this.checkBox_Maxi_Start.Location = new System.Drawing.Point(6, 32);
             this.checkBox_Maxi_Start.Name = "checkBox_Maxi_Start";
             this.checkBox_Maxi_Start.Size = new System.Drawing.Size(159, 24);
             this.checkBox_Maxi_Start.TabIndex = 4;
@@ -143,7 +164,7 @@
             this.checkBox_AMA_Start.AutoSize = true;
             this.checkBox_AMA_Start.Checked = true;
             this.checkBox_AMA_Start.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox_AMA_Start.Location = new System.Drawing.Point(6, 80);
+            this.checkBox_AMA_Start.Location = new System.Drawing.Point(6, 62);
             this.checkBox_AMA_Start.Name = "checkBox_AMA_Start";
             this.checkBox_AMA_Start.Size = new System.Drawing.Size(162, 24);
             this.checkBox_AMA_Start.TabIndex = 3;
@@ -156,7 +177,7 @@
             this.checkBox_TP_Start.AutoSize = true;
             this.checkBox_TP_Start.Checked = true;
             this.checkBox_TP_Start.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox_TP_Start.Location = new System.Drawing.Point(6, 110);
+            this.checkBox_TP_Start.Location = new System.Drawing.Point(6, 92);
             this.checkBox_TP_Start.Name = "checkBox_TP_Start";
             this.checkBox_TP_Start.Size = new System.Drawing.Size(136, 24);
             this.checkBox_TP_Start.TabIndex = 2;
@@ -169,7 +190,7 @@
             this.checkBox_direct_start.AutoSize = true;
             this.checkBox_direct_start.Checked = true;
             this.checkBox_direct_start.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox_direct_start.Location = new System.Drawing.Point(6, 140);
+            this.checkBox_direct_start.Location = new System.Drawing.Point(6, 122);
             this.checkBox_direct_start.Name = "checkBox_direct_start";
             this.checkBox_direct_start.Size = new System.Drawing.Size(121, 24);
             this.checkBox_direct_start.TabIndex = 1;
@@ -178,7 +199,7 @@
             // 
             // button_Create_Ink
             // 
-            this.button_Create_Ink.Location = new System.Drawing.Point(190, 64);
+            this.button_Create_Ink.Location = new System.Drawing.Point(190, 76);
             this.button_Create_Ink.Name = "button_Create_Ink";
             this.button_Create_Ink.Size = new System.Drawing.Size(156, 31);
             this.button_Create_Ink.TabIndex = 0;
@@ -189,7 +210,7 @@
             // button_Start_Game
             // 
             this.button_Start_Game.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button_Start_Game.Location = new System.Drawing.Point(190, 101);
+            this.button_Start_Game.Location = new System.Drawing.Point(190, 113);
             this.button_Start_Game.Name = "button_Start_Game";
             this.button_Start_Game.Size = new System.Drawing.Size(156, 63);
             this.button_Start_Game.TabIndex = 0;
@@ -305,7 +326,7 @@
             this.tabControl_Settings.Location = new System.Drawing.Point(12, 33);
             this.tabControl_Settings.Name = "tabControl_Settings";
             this.tabControl_Settings.SelectedIndex = 0;
-            this.tabControl_Settings.Size = new System.Drawing.Size(360, 307);
+            this.tabControl_Settings.Size = new System.Drawing.Size(360, 295);
             this.tabControl_Settings.TabIndex = 2;
             // 
             // tabPage_Tools
@@ -318,49 +339,20 @@
             this.tabPage_Tools.Location = new System.Drawing.Point(4, 29);
             this.tabPage_Tools.Name = "tabPage_Tools";
             this.tabPage_Tools.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_Tools.Size = new System.Drawing.Size(352, 274);
+            this.tabPage_Tools.Size = new System.Drawing.Size(352, 262);
             this.tabPage_Tools.TabIndex = 0;
             this.tabPage_Tools.Text = "实用工具";
             this.tabPage_Tools.UseVisualStyleBackColor = true;
             // 
-            // tabPage_Maxi
+            // button_card
             // 
-            this.tabPage_Maxi.Location = new System.Drawing.Point(4, 29);
-            this.tabPage_Maxi.Name = "tabPage_Maxi";
-            this.tabPage_Maxi.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_Maxi.Size = new System.Drawing.Size(352, 274);
-            this.tabPage_Maxi.TabIndex = 1;
-            this.tabPage_Maxi.Text = "MaxiTerminal配置";
-            this.tabPage_Maxi.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label5.Location = new System.Drawing.Point(1, 3);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(84, 25);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "常用工具";
-            // 
-            // button_res
-            // 
-            this.button_res.Font = new System.Drawing.Font("微软雅黑", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button_res.Location = new System.Drawing.Point(6, 31);
-            this.button_res.Name = "button_res";
-            this.button_res.Size = new System.Drawing.Size(169, 25);
-            this.button_res.TabIndex = 1;
-            this.button_res.Text = "游戏分辨率修改";
-            this.button_res.UseVisualStyleBackColor = true;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label6.Location = new System.Drawing.Point(1, 33);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(0, 25);
-            this.label6.TabIndex = 2;
+            this.button_card.Font = new System.Drawing.Font("微软雅黑", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button_card.Location = new System.Drawing.Point(6, 62);
+            this.button_card.Name = "button_card";
+            this.button_card.Size = new System.Drawing.Size(169, 25);
+            this.button_card.TabIndex = 4;
+            this.button_card.Text = "游戏刷卡键修改";
+            this.button_card.UseVisualStyleBackColor = true;
             // 
             // button_net_fix
             // 
@@ -372,15 +364,55 @@
             this.button_net_fix.Text = "游戏网络修复";
             this.button_net_fix.UseVisualStyleBackColor = true;
             // 
-            // button_card
+            // label6
             // 
-            this.button_card.Font = new System.Drawing.Font("微软雅黑", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button_card.Location = new System.Drawing.Point(6, 62);
-            this.button_card.Name = "button_card";
-            this.button_card.Size = new System.Drawing.Size(169, 25);
-            this.button_card.TabIndex = 4;
-            this.button_card.Text = "游戏刷卡键修改";
-            this.button_card.UseVisualStyleBackColor = true;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label6.Location = new System.Drawing.Point(1, 33);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(0, 25);
+            this.label6.TabIndex = 2;
+            // 
+            // button_res
+            // 
+            this.button_res.Font = new System.Drawing.Font("微软雅黑", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button_res.Location = new System.Drawing.Point(6, 31);
+            this.button_res.Name = "button_res";
+            this.button_res.Size = new System.Drawing.Size(169, 25);
+            this.button_res.TabIndex = 1;
+            this.button_res.Text = "游戏分辨率修改";
+            this.button_res.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label5.Location = new System.Drawing.Point(1, 3);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(84, 25);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "常用工具";
+            // 
+            // tabPage_Maxi
+            // 
+            this.tabPage_Maxi.Location = new System.Drawing.Point(4, 29);
+            this.tabPage_Maxi.Name = "tabPage_Maxi";
+            this.tabPage_Maxi.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage_Maxi.Size = new System.Drawing.Size(352, 274);
+            this.tabPage_Maxi.TabIndex = 1;
+            this.tabPage_Maxi.Text = "MaxiTerminal配置";
+            this.tabPage_Maxi.UseVisualStyleBackColor = true;
+            // 
+            // checkBox_Terminal_Mode
+            // 
+            this.checkBox_Terminal_Mode.AutoSize = true;
+            this.checkBox_Terminal_Mode.Location = new System.Drawing.Point(6, 152);
+            this.checkBox_Terminal_Mode.Name = "checkBox_Terminal_Mode";
+            this.checkBox_Terminal_Mode.Size = new System.Drawing.Size(106, 24);
+            this.checkBox_Terminal_Mode.TabIndex = 6;
+            this.checkBox_Terminal_Mode.Text = "终端机模式";
+            this.checkBox_Terminal_Mode.UseVisualStyleBackColor = true;
+            this.checkBox_Terminal_Mode.CheckedChanged += new System.EventHandler(this.checkBox_Terminal_Mode_CheckedChanged);
             // 
             // Main_Form
             // 
@@ -421,7 +453,7 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip;
-        private System.Windows.Forms.ToolStripMenuItem 关于ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem About_ToolStripMenuItem;
         private System.Windows.Forms.TabControl tabControl_Game;
         private System.Windows.Forms.TabPage tabPage_Main;
         private System.Windows.Forms.Button button_Start_Game;
@@ -449,6 +481,9 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button_res;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ToolStripMenuItem About_ME_ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Server_ToolStripMenuItem;
+        private System.Windows.Forms.CheckBox checkBox_Terminal_Mode;
     }
 }
 
