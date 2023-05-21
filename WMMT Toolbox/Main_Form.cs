@@ -1,13 +1,11 @@
 ﻿using IWshRuntimeLibrary;
 using System;
 using System.Diagnostics;
-using System.Diagnostics.CodeAnalysis;
-using System.Drawing;
 using System.IO;
+using System.Security.Principal;
 using System.Windows.Forms;
 using WMMT_Toolbox.Forms;
 using XmlHelper;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace WMMT_Toolbox
 {
@@ -285,6 +283,55 @@ namespace WMMT_Toolbox
             {
                 Form_RES form_res = new Form_RES();
                 form_res.ShowDialog();
+            }
+        }
+
+        //调用管理员权限部分1
+        public static bool IsAdministrator()
+        {
+            WindowsIdentity identity = WindowsIdentity.GetCurrent();
+            WindowsPrincipal principal = new WindowsPrincipal(identity);
+            return principal.IsInRole(WindowsBuiltInRole.Administrator);
+        }
+
+        //调用管理员权限部分2
+        public static void RunAsAdmin(string fileName)
+        {
+            ProcessStartInfo startInfo = new ProcessStartInfo();
+            startInfo.FileName = fileName;
+            startInfo.Verb = "runas";
+            Process.Start(startInfo);
+        }
+
+        private void button_Net_Fix_Click(object sender, EventArgs e)
+        {
+            string toolbox_ini_path = Path.Combine(Application.StartupPath, "Toolbox_Settings.ini"); //ini路径
+            IniFile Read = new IniFile(toolbox_ini_path);
+            string TP_Path = Read.ReadValue("Paths", "TP");
+
+            if(System.IO.File.Exists(TP_Path))
+            {
+                if (!IsAdministrator())
+                {
+                    DialogResult result = MessageBox.Show("该操作需要使用管理员权限\n请接下来给予软件管理员权限\n给予后软件将会重新启动\n然后重新点击“游戏网络快速修复”按钮即可进入界面", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        // 如果当前用户不是管理员，则申请管理员权限
+                        RunAsAdmin(System.Reflection.Assembly.GetExecutingAssembly().Location);
+                        this.Close();
+                        return;
+                    }
+                }
+                else
+                {
+                    Form_Net_Fix form_Net_Fix = new Form_Net_Fix();
+                    form_Net_Fix.ShowDialog();
+                    Console.WriteLine("已获得管理员权限");
+                }
+            }
+            else
+            {
+                MessageBox.Show("检测到您的游戏启动路径配置有误，请配置完成后再进行操作", "警告", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

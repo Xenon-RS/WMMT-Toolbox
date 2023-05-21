@@ -57,7 +57,7 @@
             this.tabControl_Settings = new System.Windows.Forms.TabControl();
             this.tabPage_Tools = new System.Windows.Forms.TabPage();
             this.button_card = new System.Windows.Forms.Button();
-            this.button_net_fix = new System.Windows.Forms.Button();
+            this.button_Net_Fix = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.button_res = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -352,7 +352,7 @@
             // tabPage_Tools
             // 
             this.tabPage_Tools.Controls.Add(this.button_card);
-            this.tabPage_Tools.Controls.Add(this.button_net_fix);
+            this.tabPage_Tools.Controls.Add(this.button_Net_Fix);
             this.tabPage_Tools.Controls.Add(this.label6);
             this.tabPage_Tools.Controls.Add(this.button_res);
             this.tabPage_Tools.Controls.Add(this.label5);
@@ -374,15 +374,16 @@
             this.button_card.Text = "游戏刷卡键修改";
             this.button_card.UseVisualStyleBackColor = true;
             // 
-            // button_net_fix
+            // button_Net_Fix
             // 
-            this.button_net_fix.Font = new System.Drawing.Font("微软雅黑", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button_net_fix.Location = new System.Drawing.Point(180, 31);
-            this.button_net_fix.Name = "button_net_fix";
-            this.button_net_fix.Size = new System.Drawing.Size(169, 30);
-            this.button_net_fix.TabIndex = 3;
-            this.button_net_fix.Text = "游戏网络修复";
-            this.button_net_fix.UseVisualStyleBackColor = true;
+            this.button_Net_Fix.Font = new System.Drawing.Font("微软雅黑", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button_Net_Fix.Location = new System.Drawing.Point(180, 31);
+            this.button_Net_Fix.Name = "button_Net_Fix";
+            this.button_Net_Fix.Size = new System.Drawing.Size(169, 30);
+            this.button_Net_Fix.TabIndex = 3;
+            this.button_Net_Fix.Text = "游戏网络修复";
+            this.button_Net_Fix.UseVisualStyleBackColor = true;
+            this.button_Net_Fix.Click += new System.EventHandler(this.button_Net_Fix_Click);
             // 
             // label6
             // 
@@ -486,7 +487,7 @@
         private System.Windows.Forms.CheckBox checkBox_AMA_Start;
         private System.Windows.Forms.CheckBox checkBox_TP_Start;
         private System.Windows.Forms.Button button_card;
-        private System.Windows.Forms.Button button_net_fix;
+        private System.Windows.Forms.Button button_Net_Fix;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button_res;
         private System.Windows.Forms.Label label5;

@@ -41,6 +41,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -63,6 +64,12 @@
     </Compile>
     <Compile Include="Forms\Form_About_Toolbox.Designer.cs">
       <DependentUpon>Form_About_Toolbox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_Net_Fix.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Net_Fix.Designer.cs">
+      <DependentUpon>Form_Net_Fix.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Form_RES.cs">
       <SubType>Form</SubType>
@@ -91,6 +98,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Form_About_Toolbox.resx">
       <DependentUpon>Form_About_Toolbox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Net_Fix.resx">
+      <DependentUpon>Form_Net_Fix.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Form_RES.resx">
       <DependentUpon>Form_RES.cs</DependentUpon>
