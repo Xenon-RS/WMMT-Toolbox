@@ -33,8 +33,10 @@
             this.About_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.About_ME_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Server_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.About_Box_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl_Game = new System.Windows.Forms.TabControl();
             this.tabPage_Main = new System.Windows.Forms.TabPage();
+            this.checkBox_Terminal_Mode = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.checkBox_Maxi_Start = new System.Windows.Forms.CheckBox();
             this.checkBox_AMA_Start = new System.Windows.Forms.CheckBox();
@@ -60,7 +62,6 @@
             this.button_res = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.tabPage_Maxi = new System.Windows.Forms.TabPage();
-            this.checkBox_Terminal_Mode = new System.Windows.Forms.CheckBox();
             this.menuStrip.SuspendLayout();
             this.tabControl_Game.SuspendLayout();
             this.tabPage_Main.SuspendLayout();
@@ -86,7 +87,8 @@
             // 
             this.About_ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.About_ME_ToolStripMenuItem,
-            this.Server_ToolStripMenuItem});
+            this.Server_ToolStripMenuItem,
+            this.About_Box_ToolStripMenuItem});
             this.About_ToolStripMenuItem.Name = "About_ToolStripMenuItem";
             this.About_ToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
             this.About_ToolStripMenuItem.Text = "关于";
@@ -104,6 +106,13 @@
             this.Server_ToolStripMenuItem.Size = new System.Drawing.Size(167, 26);
             this.Server_ToolStripMenuItem.Text = "友情服务器";
             this.Server_ToolStripMenuItem.Click += new System.EventHandler(this.Server_ToolStripMenuItem_Click);
+            // 
+            // About_Box_ToolStripMenuItem
+            // 
+            this.About_Box_ToolStripMenuItem.Name = "About_Box_ToolStripMenuItem";
+            this.About_Box_ToolStripMenuItem.Size = new System.Drawing.Size(167, 26);
+            this.About_Box_ToolStripMenuItem.Text = "关于工具箱";
+            this.About_Box_ToolStripMenuItem.Click += new System.EventHandler(this.About_Box_ToolStripMenuItem_Click);
             // 
             // tabControl_Game
             // 
@@ -135,6 +144,17 @@
             this.tabPage_Main.Size = new System.Drawing.Size(352, 183);
             this.tabPage_Main.TabIndex = 0;
             this.tabPage_Main.Text = "游戏启动";
+            // 
+            // checkBox_Terminal_Mode
+            // 
+            this.checkBox_Terminal_Mode.AutoSize = true;
+            this.checkBox_Terminal_Mode.Location = new System.Drawing.Point(6, 152);
+            this.checkBox_Terminal_Mode.Name = "checkBox_Terminal_Mode";
+            this.checkBox_Terminal_Mode.Size = new System.Drawing.Size(106, 24);
+            this.checkBox_Terminal_Mode.TabIndex = 6;
+            this.checkBox_Terminal_Mode.Text = "终端机模式";
+            this.checkBox_Terminal_Mode.UseVisualStyleBackColor = true;
+            this.checkBox_Terminal_Mode.CheckedChanged += new System.EventHandler(this.checkBox_Terminal_Mode_CheckedChanged);
             // 
             // label4
             // 
@@ -233,7 +253,7 @@
             this.tabPage_gp_Setting.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage_gp_Setting.Name = "tabPage_gp_Setting";
             this.tabPage_gp_Setting.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage_gp_Setting.Size = new System.Drawing.Size(352, 171);
+            this.tabPage_gp_Setting.Size = new System.Drawing.Size(352, 183);
             this.tabPage_gp_Setting.TabIndex = 1;
             this.tabPage_gp_Setting.Text = "游戏启动路径设置";
             this.tabPage_gp_Setting.UseVisualStyleBackColor = true;
@@ -347,9 +367,9 @@
             // button_card
             // 
             this.button_card.Font = new System.Drawing.Font("微软雅黑", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button_card.Location = new System.Drawing.Point(6, 62);
+            this.button_card.Location = new System.Drawing.Point(6, 67);
             this.button_card.Name = "button_card";
-            this.button_card.Size = new System.Drawing.Size(169, 25);
+            this.button_card.Size = new System.Drawing.Size(169, 30);
             this.button_card.TabIndex = 4;
             this.button_card.Text = "游戏刷卡键修改";
             this.button_card.UseVisualStyleBackColor = true;
@@ -359,7 +379,7 @@
             this.button_net_fix.Font = new System.Drawing.Font("微软雅黑", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button_net_fix.Location = new System.Drawing.Point(180, 31);
             this.button_net_fix.Name = "button_net_fix";
-            this.button_net_fix.Size = new System.Drawing.Size(169, 25);
+            this.button_net_fix.Size = new System.Drawing.Size(169, 30);
             this.button_net_fix.TabIndex = 3;
             this.button_net_fix.Text = "游戏网络修复";
             this.button_net_fix.UseVisualStyleBackColor = true;
@@ -378,10 +398,11 @@
             this.button_res.Font = new System.Drawing.Font("微软雅黑", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button_res.Location = new System.Drawing.Point(6, 31);
             this.button_res.Name = "button_res";
-            this.button_res.Size = new System.Drawing.Size(169, 25);
+            this.button_res.Size = new System.Drawing.Size(169, 30);
             this.button_res.TabIndex = 1;
             this.button_res.Text = "游戏分辨率修改";
             this.button_res.UseVisualStyleBackColor = true;
+            this.button_res.Click += new System.EventHandler(this.button_res_Click);
             // 
             // label5
             // 
@@ -398,21 +419,10 @@
             this.tabPage_Maxi.Location = new System.Drawing.Point(4, 29);
             this.tabPage_Maxi.Name = "tabPage_Maxi";
             this.tabPage_Maxi.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_Maxi.Size = new System.Drawing.Size(352, 274);
+            this.tabPage_Maxi.Size = new System.Drawing.Size(352, 262);
             this.tabPage_Maxi.TabIndex = 1;
             this.tabPage_Maxi.Text = "MaxiTerminal配置";
             this.tabPage_Maxi.UseVisualStyleBackColor = true;
-            // 
-            // checkBox_Terminal_Mode
-            // 
-            this.checkBox_Terminal_Mode.AutoSize = true;
-            this.checkBox_Terminal_Mode.Location = new System.Drawing.Point(6, 152);
-            this.checkBox_Terminal_Mode.Name = "checkBox_Terminal_Mode";
-            this.checkBox_Terminal_Mode.Size = new System.Drawing.Size(106, 24);
-            this.checkBox_Terminal_Mode.TabIndex = 6;
-            this.checkBox_Terminal_Mode.Text = "终端机模式";
-            this.checkBox_Terminal_Mode.UseVisualStyleBackColor = true;
-            this.checkBox_Terminal_Mode.CheckedChanged += new System.EventHandler(this.checkBox_Terminal_Mode_CheckedChanged);
             // 
             // Main_Form
             // 
@@ -429,7 +439,6 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(402, 609);
-            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(402, 609);
             this.Name = "Main_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -484,6 +493,7 @@
         private System.Windows.Forms.ToolStripMenuItem About_ME_ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem Server_ToolStripMenuItem;
         private System.Windows.Forms.CheckBox checkBox_Terminal_Mode;
+        private System.Windows.Forms.ToolStripMenuItem About_Box_ToolStripMenuItem;
     }
 }
 

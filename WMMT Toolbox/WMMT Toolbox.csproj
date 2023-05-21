@@ -58,6 +58,18 @@
     <Compile Include="Forms\Form_About.Designer.cs">
       <DependentUpon>Form_About.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Form_About_Toolbox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_About_Toolbox.Designer.cs">
+      <DependentUpon>Form_About_Toolbox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_RES.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_RES.Designer.cs">
+      <DependentUpon>Form_RES.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Form_Server.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +89,12 @@
     <EmbeddedResource Include="Forms\Form_About.resx">
       <DependentUpon>Form_About.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_About_Toolbox.resx">
+      <DependentUpon>Form_About_Toolbox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_RES.resx">
+      <DependentUpon>Form_RES.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Form_Server.resx">
       <DependentUpon>Form_Server.cs</DependentUpon>
     </EmbeddedResource>
@@ -91,6 +109,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.manifest" />
     <None Include="Properties\Settings.settings">
@@ -122,6 +141,30 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
+    <None Include="Resources\RES\Readme.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\RES\3440x1440\wmn6r.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\RES\2560x1440\wmn6r.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\RES\2560×1080\wmn6r.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\RES\2448x1373\wmn6r.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\RES\1920×1080\wmn6r.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\RES\1600x900\wmn6r.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\RES\1366x768\wmn6r.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

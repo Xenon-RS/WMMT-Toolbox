@@ -7,6 +7,7 @@ using System.IO;
 using System.Windows.Forms;
 using WMMT_Toolbox.Forms;
 using XmlHelper;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace WMMT_Toolbox
 {
@@ -49,7 +50,7 @@ namespace WMMT_Toolbox
             {
                 checkBox_Terminal_Mode.Enabled = true;
                 //读取终端机中选项
-                XmlHelper.XmlManager xmlManager = new XmlHelper.XmlManager(TP_User_XML_Path);
+                XmlManager xmlManager = new XmlManager(TP_User_XML_Path);
                 string terminalMode = xmlManager.ReadXmlFieldValue("TerminalMode");
                 Console.WriteLine(terminalMode);
                 if(terminalMode == "1")
@@ -63,7 +64,6 @@ namespace WMMT_Toolbox
             }
             else
             {
-                Console.WriteLine("用户没有配置好TP的路径，使终端机的Checkbox不可用");
                 checkBox_Terminal_Mode.Enabled = false;
             }
 
@@ -262,6 +262,30 @@ namespace WMMT_Toolbox
             {
                 xmlManager.WriteXmlFieldValue("TerminalMode", "0");
             }         
+        }
+
+        private void About_Box_ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_About_Toolbox form_About_Toolbox = new Form_About_Toolbox();
+            form_About_Toolbox.ShowDialog();
+        }
+
+        private void button_res_Click(object sender, EventArgs e)
+        {
+            //进入前检查是否已经配置了AMAuthd.exe路径（使用其路径进行配置）
+            string toolbox_ini_path = Path.Combine(Application.StartupPath, "Toolbox_Settings.ini"); //ini路径
+            IniFile Read_Path = new IniFile(toolbox_ini_path);
+            string AMA_Path = Read_Path.ReadValue("Paths", "AMAuthd");
+            string Game_Path = AMA_Path.Replace("\\AMCUS\\AMAuthd.exe", "\\wmn6r.exe");
+            if(Game_Path == "")
+            {
+                MessageBox.Show("该功能需要先配置完成游戏启动路径\n请先去配置路径后再使用", "错误", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                Form_RES form_res = new Form_RES();
+                form_res.ShowDialog();
+            }
         }
     }
 }
