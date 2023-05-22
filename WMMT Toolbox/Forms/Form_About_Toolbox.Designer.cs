@@ -40,7 +40,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(247, 20);
             this.label1.TabIndex = 0;
-            this.label1.Text = "版本：Beta 1.0（开发测试中版本）";
+            this.label1.Text = "版本：Beta 1.2（开发测试中版本）";
             // 
             // linkLabel_GitHub
             // 

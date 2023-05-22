@@ -334,5 +334,23 @@ namespace WMMT_Toolbox
                 MessageBox.Show("检测到您的游戏启动路径配置有误，请配置完成后再进行操作", "警告", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void button_card_Click(object sender, EventArgs e)
+        {
+            string toolbox_ini_path = Path.Combine(Application.StartupPath, "Toolbox_Settings.ini"); //ini路径
+            IniFile Read = new IniFile(toolbox_ini_path);
+            string AMA_Path = Read.ReadValue("Paths", "AMAuthd");
+            
+            //判断是否为空，为空则取消打开
+            if(AMA_Path != null)
+            {
+                Form_Card form_Card = new Form_Card();
+                form_Card.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("检测到您的游戏启动路径配置有误，请配置完成后再进行操作", "警告", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

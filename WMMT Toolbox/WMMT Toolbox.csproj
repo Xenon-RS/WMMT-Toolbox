@@ -65,6 +65,12 @@
     <Compile Include="Forms\Form_About_Toolbox.Designer.cs">
       <DependentUpon>Form_About_Toolbox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Form_Card.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Card.Designer.cs">
+      <DependentUpon>Form_Card.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Form_Net_Fix.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Form_About_Toolbox.resx">
       <DependentUpon>Form_About_Toolbox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Card.resx">
+      <DependentUpon>Form_Card.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Form_Net_Fix.resx">
       <DependentUpon>Form_Net_Fix.cs</DependentUpon>
@@ -151,6 +160,39 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
+    <None Include="Resources\Bngrw\Spacebar\bngrw.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Bngrw\Shift\bngrw.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Bngrw\Mouse_Right\bngrw.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Bngrw\Mouse_Mid\bngrw.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Bngrw\Mouse_Left\bngrw.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Bngrw\KeyPad_0\bngrw.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Bngrw\Home\bngrw.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Bngrw\Enter\bngrw.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Bngrw\Delete\bngrw.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Bngrw\Ctrl\bngrw.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Bngrw\Backspace\bngrw.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\RES\Readme.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

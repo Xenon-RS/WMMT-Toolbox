@@ -373,6 +373,7 @@
             this.button_card.TabIndex = 4;
             this.button_card.Text = "游戏刷卡键修改";
             this.button_card.UseVisualStyleBackColor = true;
+            this.button_card.Click += new System.EventHandler(this.button_card_Click);
             // 
             // button_Net_Fix
             // 

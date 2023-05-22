@@ -31,7 +31,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.linkLabel_GitHub = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // label1
@@ -62,23 +61,11 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Form OLG WMMT";
             // 
-            // linkLabel_GitHub
-            // 
-            this.linkLabel_GitHub.AutoSize = true;
-            this.linkLabel_GitHub.Location = new System.Drawing.Point(14, 100);
-            this.linkLabel_GitHub.Name = "linkLabel_GitHub";
-            this.linkLabel_GitHub.Size = new System.Drawing.Size(280, 20);
-            this.linkLabel_GitHub.TabIndex = 3;
-            this.linkLabel_GitHub.TabStop = true;
-            this.linkLabel_GitHub.Text = "WMMT Toolbox GitHub Repositories\r\n";
-            this.linkLabel_GitHub.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_GitHub_LinkClicked);
-            // 
             // Form_About
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(306, 133);
-            this.Controls.Add(this.linkLabel_GitHub);
+            this.ClientSize = new System.Drawing.Size(306, 96);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -86,9 +73,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(324, 180);
+            this.MaximumSize = new System.Drawing.Size(324, 143);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(324, 180);
+            this.MinimumSize = new System.Drawing.Size(324, 143);
             this.Name = "Form_About";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -103,6 +90,5 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.LinkLabel linkLabel_GitHub;
     }
 }
