@@ -408,5 +408,37 @@ namespace WMMT_Toolbox
             // 在 CardManagerForm 关闭后重新加载卡片到 ComboBox
             LoadCardsIntoComboBox();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string toolbox_ini_path = Path.Combine(Application.StartupPath, "Toolbox_Settings.ini"); //ini路径
+            IniFile Read = new IniFile(toolbox_ini_path);
+            string TP_Path = Read.ReadValue("Paths", "TP");
+
+            if (System.IO.File.Exists(TP_Path))
+            {
+                if (!IsAdministrator())
+                {
+                    DialogResult result = MessageBox.Show("该操作需要使用管理员权限\n请接下来给予软件管理员权限\n给予后软件将会重新启动\n然后重新点击“游戏网络快速修复”按钮即可进入界面", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        // 如果当前用户不是管理员，则申请管理员权限
+                        RunAsAdmin(System.Reflection.Assembly.GetExecutingAssembly().Location);
+                        this.Close();
+                        return;
+                    }
+                }
+                else
+                {
+                    Form_Server_Change form_Server_Change = new Form_Server_Change();
+                    form_Server_Change.ShowDialog();
+                    Console.WriteLine("已获得管理员权限");
+                }
+            }
+            else
+            {
+                MessageBox.Show("检测到您的游戏启动路径配置有误，请配置完成后再进行操作", "警告", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

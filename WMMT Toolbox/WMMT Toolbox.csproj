@@ -96,6 +96,12 @@
     <Compile Include="Forms\Form_Server.Designer.cs">
       <DependentUpon>Form_Server.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Form_Server_Change.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Server_Change.Designer.cs">
+      <DependentUpon>Form_Server_Change.cs</DependentUpon>
+    </Compile>
     <Compile Include="IniFile.cs" />
     <Compile Include="Main_Form.cs">
       <SubType>Form</SubType>
@@ -126,6 +132,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Form_Server.resx">
       <DependentUpon>Form_Server.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Server_Change.resx">
+      <DependentUpon>Form_Server_Change.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main_Form.resx">
       <DependentUpon>Main_Form.cs</DependentUpon>
