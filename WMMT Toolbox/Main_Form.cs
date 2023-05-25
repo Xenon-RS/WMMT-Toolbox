@@ -11,6 +11,9 @@ namespace WMMT_Toolbox
 {
     public partial class Main_Form : Form
     {
+
+        string Card_Folder_Path = Application.StartupPath + "\\Card";
+
         public Main_Form()
         {
             InitializeComponent();
@@ -18,6 +21,9 @@ namespace WMMT_Toolbox
 
         private void Main_Form_Load(object sender, EventArgs e)
         {
+            //加载卡片
+            LoadCardsIntoComboBox();
+
             //读取路径
             string toolbox_ini_path = Path.Combine(Application.StartupPath, "Toolbox_Settings.ini"); //ini路径
 
@@ -64,9 +70,20 @@ namespace WMMT_Toolbox
             {
                 checkBox_Terminal_Mode.Enabled = false;
             }
+        }
 
+        private void LoadCardsIntoComboBox()
+        {
+            comboBox_Cards.Items.Clear();
 
+            // 加载卡片到 ComboBox
+            string[] cardFiles = Directory.GetFiles(Card_Folder_Path, "*.ini");
 
+            foreach (string filePath in cardFiles)
+            {
+                string fileName = Path.GetFileNameWithoutExtension(filePath);
+                comboBox_Cards.Items.Add(fileName);
+            }
         }
 
         private void button_Maxi_Select_Click(object sender, EventArgs e)
@@ -158,6 +175,31 @@ namespace WMMT_Toolbox
         private void button_Start_Game_Click(object sender, EventArgs e)
         {
             string toolbox_ini_path = Path.Combine(Application.StartupPath, "Toolbox_Settings.ini"); //ini路径
+
+            //以下为处理卡文件事件
+            if (comboBox_Cards.Text == "留空则使用当前卡片")
+            {
+                Console.WriteLine("用户不需要更换卡片");
+            }
+            else
+            {
+                Console.WriteLine("用户需要更换卡片");
+
+                //获取选择卡片的名字与存放卡片的文件夹中的文件路径
+                string Card_Select = comboBox_Cards.Text;
+                string Card_Name = Card_Select + ".ini";
+                string Card_Folder_Include_Name = Card_Folder_Path + "\\" + Card_Name; //源文件路径
+
+                //设置目标文件路径
+                IniFile Read_AMA = new IniFile(toolbox_ini_path);
+                string AMA = Read_AMA.ReadValue("Paths", "AMAuthd");
+                string Card_INI = AMA.Replace("\\AMCUS\\AMAuthd.exe", "\\card.ini");
+                string Card_In_Game_Folder_Name = Card_INI; //目标文件路径
+                Console.WriteLine(Card_In_Game_Folder_Name);
+                System.IO.File.Copy(Card_Folder_Include_Name, Card_In_Game_Folder_Name, true); //复制过去并覆盖
+            }
+
+            //以下为处理游戏启动事件
 
             IniFile Read_Paths = new IniFile(toolbox_ini_path);
             string Maxi_Path = Read_Paths.ReadValue("Paths", "MaxiTerminal");
@@ -351,6 +393,20 @@ namespace WMMT_Toolbox
             {
                 MessageBox.Show("检测到您的游戏启动路径配置有误，请配置完成后再进行操作", "警告", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void button_CardManager_Click(object sender, EventArgs e)
+        {
+            Form_CardManager form_CardManager = new Form_CardManager();
+            // 注册 CardManagerForm 的 FormClosed 事件处理程序
+            form_CardManager.FormClosed += CardManagerForm_FormClosed;
+            form_CardManager.ShowDialog();
+        }
+
+        private void CardManagerForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            // 在 CardManagerForm 关闭后重新加载卡片到 ComboBox
+            LoadCardsIntoComboBox();
         }
     }
 }

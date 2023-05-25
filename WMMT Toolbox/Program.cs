@@ -24,6 +24,18 @@ namespace WMMT_Toolbox
 
             string toolbox_ini_path = Path.Combine(Application.StartupPath, "Toolbox_Settings.ini"); //ini路径
 
+            //判断卡片文件夹是否存在
+            string Card_Folder_Path = Application.StartupPath + "\\Card";
+            if (Directory.Exists(Card_Folder_Path))
+            {
+                Console.WriteLine("卡片文件夹存在");
+            }
+            else
+            {
+                Console.WriteLine("卡片文件夹不存在，创建中");
+                Directory.CreateDirectory(Card_Folder_Path);
+            }
+
             if(!File.Exists(toolbox_ini_path))
             {
                 //没找到 创建一个

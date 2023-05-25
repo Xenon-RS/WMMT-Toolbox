@@ -62,6 +62,9 @@
             this.button_res = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.tabPage_Maxi = new System.Windows.Forms.TabPage();
+            this.button_CardManager = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.comboBox_Cards = new System.Windows.Forms.ComboBox();
             this.menuStrip.SuspendLayout();
             this.tabControl_Game.SuspendLayout();
             this.tabPage_Main.SuspendLayout();
@@ -119,16 +122,18 @@
             this.tabControl_Game.Controls.Add(this.tabPage_Main);
             this.tabControl_Game.Controls.Add(this.tabPage_gp_Setting);
             this.tabControl_Game.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tabControl_Game.Location = new System.Drawing.Point(12, 335);
+            this.tabControl_Game.Location = new System.Drawing.Point(12, 303);
             this.tabControl_Game.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabControl_Game.Name = "tabControl_Game";
             this.tabControl_Game.SelectedIndex = 0;
-            this.tabControl_Game.Size = new System.Drawing.Size(360, 216);
+            this.tabControl_Game.Size = new System.Drawing.Size(360, 248);
             this.tabControl_Game.TabIndex = 1;
             // 
             // tabPage_Main
             // 
             this.tabPage_Main.BackColor = System.Drawing.Color.White;
+            this.tabPage_Main.Controls.Add(this.comboBox_Cards);
+            this.tabPage_Main.Controls.Add(this.label7);
             this.tabPage_Main.Controls.Add(this.checkBox_Terminal_Mode);
             this.tabPage_Main.Controls.Add(this.label4);
             this.tabPage_Main.Controls.Add(this.checkBox_Maxi_Start);
@@ -141,7 +146,7 @@
             this.tabPage_Main.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage_Main.Name = "tabPage_Main";
             this.tabPage_Main.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage_Main.Size = new System.Drawing.Size(352, 183);
+            this.tabPage_Main.Size = new System.Drawing.Size(352, 215);
             this.tabPage_Main.TabIndex = 0;
             this.tabPage_Main.Text = "游戏启动";
             // 
@@ -219,9 +224,9 @@
             // 
             // button_Create_Ink
             // 
-            this.button_Create_Ink.Location = new System.Drawing.Point(190, 76);
+            this.button_Create_Ink.Location = new System.Drawing.Point(180, 108);
             this.button_Create_Ink.Name = "button_Create_Ink";
-            this.button_Create_Ink.Size = new System.Drawing.Size(156, 31);
+            this.button_Create_Ink.Size = new System.Drawing.Size(166, 31);
             this.button_Create_Ink.TabIndex = 0;
             this.button_Create_Ink.Text = "创建快捷方式到桌面";
             this.button_Create_Ink.UseVisualStyleBackColor = true;
@@ -230,9 +235,9 @@
             // button_Start_Game
             // 
             this.button_Start_Game.Font = new System.Drawing.Font("微软雅黑", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button_Start_Game.Location = new System.Drawing.Point(190, 113);
+            this.button_Start_Game.Location = new System.Drawing.Point(180, 145);
             this.button_Start_Game.Name = "button_Start_Game";
-            this.button_Start_Game.Size = new System.Drawing.Size(156, 63);
+            this.button_Start_Game.Size = new System.Drawing.Size(166, 63);
             this.button_Start_Game.TabIndex = 0;
             this.button_Start_Game.Text = "启动游戏";
             this.button_Start_Game.UseVisualStyleBackColor = true;
@@ -253,7 +258,7 @@
             this.tabPage_gp_Setting.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage_gp_Setting.Name = "tabPage_gp_Setting";
             this.tabPage_gp_Setting.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage_gp_Setting.Size = new System.Drawing.Size(352, 183);
+            this.tabPage_gp_Setting.Size = new System.Drawing.Size(352, 215);
             this.tabPage_gp_Setting.TabIndex = 1;
             this.tabPage_gp_Setting.Text = "游戏启动路径设置";
             this.tabPage_gp_Setting.UseVisualStyleBackColor = true;
@@ -346,11 +351,12 @@
             this.tabControl_Settings.Location = new System.Drawing.Point(12, 33);
             this.tabControl_Settings.Name = "tabControl_Settings";
             this.tabControl_Settings.SelectedIndex = 0;
-            this.tabControl_Settings.Size = new System.Drawing.Size(360, 295);
+            this.tabControl_Settings.Size = new System.Drawing.Size(360, 263);
             this.tabControl_Settings.TabIndex = 2;
             // 
             // tabPage_Tools
             // 
+            this.tabPage_Tools.Controls.Add(this.button_CardManager);
             this.tabPage_Tools.Controls.Add(this.button_card);
             this.tabPage_Tools.Controls.Add(this.button_Net_Fix);
             this.tabPage_Tools.Controls.Add(this.label6);
@@ -359,7 +365,7 @@
             this.tabPage_Tools.Location = new System.Drawing.Point(4, 29);
             this.tabPage_Tools.Name = "tabPage_Tools";
             this.tabPage_Tools.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_Tools.Size = new System.Drawing.Size(352, 262);
+            this.tabPage_Tools.Size = new System.Drawing.Size(352, 230);
             this.tabPage_Tools.TabIndex = 0;
             this.tabPage_Tools.Text = "实用工具";
             this.tabPage_Tools.UseVisualStyleBackColor = true;
@@ -425,6 +431,36 @@
             this.tabPage_Maxi.TabIndex = 1;
             this.tabPage_Maxi.Text = "MaxiTerminal配置";
             this.tabPage_Maxi.UseVisualStyleBackColor = true;
+            // 
+            // button_CardManager
+            // 
+            this.button_CardManager.Font = new System.Drawing.Font("微软雅黑", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button_CardManager.Location = new System.Drawing.Point(177, 67);
+            this.button_CardManager.Name = "button_CardManager";
+            this.button_CardManager.Size = new System.Drawing.Size(169, 30);
+            this.button_CardManager.TabIndex = 5;
+            this.button_CardManager.Text = "游戏卡片管理";
+            this.button_CardManager.UseVisualStyleBackColor = true;
+            this.button_CardManager.Click += new System.EventHandler(this.button_CardManager_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label7.Location = new System.Drawing.Point(176, 5);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(69, 19);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "选择卡片";
+            // 
+            // comboBox_Cards
+            // 
+            this.comboBox_Cards.FormattingEnabled = true;
+            this.comboBox_Cards.Location = new System.Drawing.Point(180, 27);
+            this.comboBox_Cards.Name = "comboBox_Cards";
+            this.comboBox_Cards.Size = new System.Drawing.Size(166, 28);
+            this.comboBox_Cards.TabIndex = 8;
+            this.comboBox_Cards.Text = "留空则使用当前卡片";
             // 
             // Main_Form
             // 
@@ -496,6 +532,9 @@
         private System.Windows.Forms.ToolStripMenuItem Server_ToolStripMenuItem;
         private System.Windows.Forms.CheckBox checkBox_Terminal_Mode;
         private System.Windows.Forms.ToolStripMenuItem About_Box_ToolStripMenuItem;
+        private System.Windows.Forms.Button button_CardManager;
+        private System.Windows.Forms.ComboBox comboBox_Cards;
+        private System.Windows.Forms.Label label7;
     }
 }
 
