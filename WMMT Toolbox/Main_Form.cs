@@ -213,42 +213,63 @@ namespace WMMT_Toolbox
             }
             else
             {
-                //启动Maxi Terminal
-                string Maxi_Path_Start = Maxi_Path;
-                Process pro = new Process();
-                FileInfo file = new FileInfo(Maxi_Path_Start);
-                pro.StartInfo.WorkingDirectory = file.DirectoryName;
-                pro.StartInfo.FileName = Maxi_Path_Start;
-                pro.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Minimized;
-                pro.StartInfo.CreateNoWindow = false;
-                pro.Start();
-
-                //启动AMAuthd.exe
-                string AMA_exeFilePath = AMA_Path; // 设置 AMAuthd.exe 文件的完整路径
-                Process AMA_process = new Process();
-                AMA_process.StartInfo.FileName = AMA_exeFilePath; // 将完整路径传递给 FileName 属性
-                AMA_process.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-                AMA_process.Start();
-
-                //启动TP模拟器（直接启动）
-                string TP_exeFilePath = TP_Path; // 设置 TeknoParrotUi.exe 文件的完整路径
-                string arguments = ""; // 设置启动参数（默认空的）
-
-                //根据用户选择状态是否调用参数启动
-                if(checkBox_direct_start.Checked)
+                if(checkBox_Maxi_Start.Checked == true)
                 {
-                    arguments = "--profile=WMMT6R.xml";
+                    //启动Maxi Terminal
+                    string Maxi_Path_Start = Maxi_Path;
+                    Process pro = new Process();
+                    FileInfo file = new FileInfo(Maxi_Path_Start);
+                    pro.StartInfo.WorkingDirectory = file.DirectoryName;
+                    pro.StartInfo.FileName = Maxi_Path_Start;
+                    pro.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Minimized;
+                    pro.StartInfo.CreateNoWindow = false;
+                    pro.Start();
                 }
                 else
                 {
-                    arguments = "";
-                }    
+                    Console.WriteLine("用户选择不启动MaxiTerminal");
+                }
+                
+                if(checkBox_AMA_Start.Checked == true)
+                {
+                    //启动AMAuthd.exe
+                    string AMA_exeFilePath = AMA_Path; // 设置 AMAuthd.exe 文件的完整路径
+                    Process AMA_process = new Process();
+                    AMA_process.StartInfo.FileName = AMA_exeFilePath; // 将完整路径传递给 FileName 属性
+                    AMA_process.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+                    AMA_process.Start();
+                }
+                else
+                {
+                    Console.WriteLine("用户选择不启动AMAuthd.exe");
+                }
+                
+                if(checkBox_TP_Start.Checked == true)
+                {
+                    //启动TP模拟器（直接启动）
+                    string TP_exeFilePath = TP_Path; // 设置 TeknoParrotUi.exe 文件的完整路径
+                    string arguments = ""; // 设置启动参数（默认空的）
 
-                Process TP_process = new Process();
-                TP_process.StartInfo.FileName = TP_exeFilePath;
-                TP_process.StartInfo.Arguments = arguments;
-                TP_process.StartInfo.WindowStyle = ProcessWindowStyle.Normal; // 设置为正常启动
-                TP_process.Start();
+                    //根据用户选择状态是否调用参数启动
+                    if (checkBox_direct_start.Checked)
+                    {
+                        arguments = "--profile=WMMT6R.xml";
+                    }
+                    else
+                    {
+                        arguments = "";
+                    }
+
+                    Process TP_process = new Process();
+                    TP_process.StartInfo.FileName = TP_exeFilePath;
+                    TP_process.StartInfo.Arguments = arguments;
+                    TP_process.StartInfo.WindowStyle = ProcessWindowStyle.Normal; // 设置为正常启动
+                    TP_process.Start();
+                }
+                else
+                {
+                    MessageBox.Show("您必须勾选此选项：启动鹦鹉模拟器，才可以启动游戏！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
