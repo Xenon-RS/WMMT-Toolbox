@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
 
@@ -12,13 +13,28 @@ namespace WMMT_Toolbox
         [STAThread]
         static void Main()
         {
+            // 首先检查当前是否已打开
+            string strProcessName = System.Diagnostics.Process.GetCurrentProcess().ProcessName;   //获取欲启动进程名
+                                                                                                  //检查进程是否已经启动，已经启动则提示信息退出程序
+            if (System.Diagnostics.Process.GetProcessesByName(strProcessName).Length > 1)
+            {
+
+                MessageBox.Show("WMMT-Toolbox已经正在运行！", "警告", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); //弹出提示框
+
+                Application.Exit(); //关闭程序
+
+                return;
+            }
+
             // 启动前检查路径
             string startup_path = Application.StartupPath; //启动路径
             string startup_folder = System.IO.Path.GetFileName(Application.StartupPath); //exe当前运行文件夹
             string startup_path_nofolder = startup_path.Replace(startup_folder, ""); //exe运行目录前一个文件夹
 
             string wmmt_exe_path = System.IO.Path.Combine(startup_path_nofolder, "wmn6r.exe"); //wmn6r.exe的路径
-            string wmmt_maxi_path = System.IO.Path.Combine(startup_path_nofolder, "MaxiTerminal\\run.bat"); //MaxiTerminal run.bat的路径（预设）
+
+            string wmmt_maxi_path = System.IO.Path.Combine(startup_path_nofolder, "MaxiTerminal\\run.bat"); //MaxiTerminal run.bat的路径（必须预设）
+
             string wmmt_ama_path = System.IO.Path.Combine(startup_path_nofolder, "AMCUS\\AMAuthd.exe"); //AMAuthd.exe的路径（预设）
             string wmmt_tp_path = System.IO.Path.Combine(startup_path_nofolder, "TP_MutiPlayer\\TeknoParrotUi.exe"); //TP的路径（预设）
 
@@ -36,6 +52,7 @@ namespace WMMT_Toolbox
                 Directory.CreateDirectory(Card_Folder_Path);
             }
 
+            //判断配置文件是否存在
             if(!File.Exists(toolbox_ini_path))
             {
                 //没找到 创建一个

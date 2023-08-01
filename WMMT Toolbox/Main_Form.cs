@@ -213,31 +213,82 @@ namespace WMMT_Toolbox
             }
             else
             {
-                if(checkBox_Maxi_Start.Checked == true)
+                if (checkBox_Maxi_Start.Checked == true)
                 {
-                    //启动Maxi Terminal
-                    string Maxi_Path_Start = Maxi_Path;
-                    Process pro = new Process();
-                    FileInfo file = new FileInfo(Maxi_Path_Start);
-                    pro.StartInfo.WorkingDirectory = file.DirectoryName;
-                    pro.StartInfo.FileName = Maxi_Path_Start;
-                    pro.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Minimized;
-                    pro.StartInfo.CreateNoWindow = false;
-                    pro.Start();
+                    // 检测是否已启动
+                    string processName = "Maxi Terminal";
+                    bool isMaxiTerminalRunning = false;
+
+                    Process[] processes = Process.GetProcesses();
+                    foreach (Process process in processes)
+                    {
+                        if (process.MainWindowTitle.Contains(processName))
+                        {
+                            isMaxiTerminalRunning = true;
+                            break;
+                        }
+                    }
+
+                    if (isMaxiTerminalRunning)
+                    {
+                        Console.WriteLine($"{processName} 正在运行，不启动");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"{processName} 不在运行，启动...");
+
+                        // 启动Maxi Terminal
+                        string Maxi_Path_Start = Maxi_Path;
+                        Process pro = new Process();
+                        FileInfo file = new FileInfo(Maxi_Path_Start);
+
+                        pro.StartInfo.WorkingDirectory = file.DirectoryName;
+                        pro.StartInfo.FileName = "run.bat"; // 使用cmd.exe作为要运行批处理文件的进程
+                        pro.StartInfo.Arguments = $"/k title Maxi Terminal"; // 使用/k保持cmd窗口打开，并设置自定义标题
+
+                        pro.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Minimized;
+                        pro.StartInfo.CreateNoWindow = false;
+
+                        pro.Start();
+                    }
                 }
                 else
                 {
                     Console.WriteLine("用户选择不启动MaxiTerminal");
                 }
-                
-                if(checkBox_AMA_Start.Checked == true)
+
+
+                if (checkBox_AMA_Start.Checked == true)
                 {
-                    //启动AMAuthd.exe
-                    string AMA_exeFilePath = AMA_Path; // 设置 AMAuthd.exe 文件的完整路径
-                    Process AMA_process = new Process();
-                    AMA_process.StartInfo.FileName = AMA_exeFilePath; // 将完整路径传递给 FileName 属性
-                    AMA_process.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
-                    AMA_process.Start();
+                    // 检测是否已启动
+                    string processName = AMA_Path;
+                    bool isAMARunning = false;
+
+                    Process[] processes = Process.GetProcesses();
+                    foreach (Process process in processes)
+                    {
+                        if (process.MainWindowTitle.Contains(processName))
+                        {
+                            isAMARunning = true;
+                            break;
+                        }
+                    }
+
+                    if(isAMARunning)
+                    {
+                        Console.WriteLine($"{processName} 正在运行，不启动");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"{processName} 不在运行，启动...");
+
+                        //启动AMAuthd.exe
+                        string AMA_exeFilePath = AMA_Path; // 设置 AMAuthd.exe 文件的完整路径
+                        Process AMA_process = new Process();
+                        AMA_process.StartInfo.FileName = AMA_exeFilePath; // 将完整路径传递给 FileName 属性
+                        AMA_process.StartInfo.WindowStyle = ProcessWindowStyle.Minimized;
+                        AMA_process.Start();
+                    }
                 }
                 else
                 {
@@ -246,31 +297,123 @@ namespace WMMT_Toolbox
                 
                 if(checkBox_TP_Start.Checked == true)
                 {
-                    //启动TP模拟器（直接启动）
-                    string TP_exeFilePath = TP_Path; // 设置 TeknoParrotUi.exe 文件的完整路径
-                    string arguments = ""; // 设置启动参数（默认空的）
-
-                    //根据用户选择状态是否调用参数启动
-                    if (checkBox_direct_start.Checked)
+                    if(checkBox_Maxi_Start.Checked == false || checkBox_AMA_Start.Checked == false)
                     {
-                        arguments = "--profile=WMMT6R.xml";
+                        DialogResult warning = MessageBox.Show("Maxi Terminal 与 AMAuthd.exe 是游戏联网的关键程序\n您确定不启动他们？\n缺少一个都将导致游戏无法联网", "警告", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if(warning == DialogResult.Yes)
+                        {
+                            //启动TP模拟器（直接启动）
+                            string TP_exeFilePath = TP_Path; // 设置 TeknoParrotUi.exe 文件的完整路径
+                            string arguments = ""; // 设置启动参数（默认空的）
+
+                            //根据用户选择状态是否调用参数启动
+                            if (checkBox_direct_start.Checked)
+                            {
+                                arguments = "--profile=WMMT6R.xml";
+                            }
+                            else
+                            {
+                                arguments = "";
+                            }
+
+                            Process TP_process = new Process();
+                            TP_process.StartInfo.FileName = TP_exeFilePath;
+                            TP_process.StartInfo.Arguments = arguments;
+                            TP_process.StartInfo.WindowStyle = ProcessWindowStyle.Normal; // 设置为正常启动
+                            TP_process.Start();
+                            TP_process.WaitForExit();
+
+                            // 等待TeknoParrotUi.exe进程退出
+                            TP_process.WaitForExit();
+
+                            // 关闭标题名为"Maxi Terminal"的进程
+                            if (!CloseProcessByTitle("Maxi Terminal"))
+                            {
+                                MessageBox.Show("无法自动关闭\"Maxi Terminal\"\n请检查您的\"Maxi Terminal\"窗口标题是否为\"Maxi Terminal\"\n您可以编辑\"Maxi Terminal\"文件夹中的\"run.bat\"文件\n并在\"node index.js\"这一行代码的上面一行写入\"title Maxi Terminal\"以使\"Maxi Terminal\"的标题正确", "未找到Maxi Terminal的进程", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+
+                            // 关闭标题名为"AMAuthd.exe"的进程
+                            if (!CloseProcessByTitle("AMAuthd.exe"))
+                            {
+                                MessageBox.Show("无法自动关闭\"AMAuthd.exe\"\n", "未找到AMAuthd.exe的进程", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
                     }
                     else
                     {
-                        arguments = "";
-                    }
+                        //启动TP模拟器（直接启动）
+                        string TP_exeFilePath = TP_Path; // 设置 TeknoParrotUi.exe 文件的完整路径
+                        string arguments = ""; // 设置启动参数（默认空的）
 
-                    Process TP_process = new Process();
-                    TP_process.StartInfo.FileName = TP_exeFilePath;
-                    TP_process.StartInfo.Arguments = arguments;
-                    TP_process.StartInfo.WindowStyle = ProcessWindowStyle.Normal; // 设置为正常启动
-                    TP_process.Start();
+                        //根据用户选择状态是否调用参数启动
+                        if (checkBox_direct_start.Checked)
+                        {
+                            arguments = "--profile=WMMT6R.xml";
+                        }
+                        else
+                        {
+                            arguments = "";
+                        }
+
+                        Process TP_process = new Process();
+                        TP_process.StartInfo.FileName = TP_exeFilePath;
+                        TP_process.StartInfo.Arguments = arguments;
+                        TP_process.StartInfo.WindowStyle = ProcessWindowStyle.Normal; // 设置为正常启动
+                        TP_process.Start();
+                        TP_process.WaitForExit();
+
+                        // 等待TeknoParrotUi.exe进程退出
+                        TP_process.WaitForExit();
+
+                        // 关闭标题名为"Maxi Terminal"的进程
+                        if (!CloseProcessByTitle("Maxi Terminal"))
+                        {
+                            MessageBox.Show("无法自动关闭\"Maxi Terminal\"\n请检查您的\"Maxi Terminal\"窗口标题是否为\"Maxi Terminal\"\n您可以编辑\"Maxi Terminal\"文件夹中的\"run.bat\"文件\n并在\"node index.js\"这一行代码的上面一行写入\"title Maxi Terminal\"以使\"Maxi Terminal\"的标题正确", "未找到Maxi Terminal的进程", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+
+                        // 关闭标题名为"AMAuthd.exe"的进程
+                        if (!CloseProcessByTitle("AMAuthd.exe"))
+                        {
+                            MessageBox.Show("无法自动关闭\"AMAuthd.exe\"\n", "未找到AMAuthd.exe的进程", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
                 }
                 else
                 {
                     MessageBox.Show("您必须勾选此选项：启动鹦鹉模拟器，才可以启动游戏！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        // 根据窗口标题关闭进程
+        private bool CloseProcessByTitle(string processTitle)
+        {
+            bool processFound = false;
+
+            Process[] processes = Process.GetProcesses();
+            foreach (Process process in processes)
+            {
+                if (process.MainWindowTitle.Contains(processTitle))
+                {
+                    try
+                    {
+                        process.CloseMainWindow();
+                        process.WaitForExit(5000); // 等待进程最多5秒钟退出
+                        if (!process.HasExited)
+                        {
+                            process.Kill(); // 如果进程未能在5秒内正常退出，直接终止进程
+                        }
+
+                        processFound = true;
+                    }
+                    catch (Exception)
+                    {
+                        // 处理关闭进程的异常
+                    }
+                }
+            }
+
+            return processFound;
         }
 
         private void checkBox_Maxi_Start_CheckedChanged(object sender, EventArgs e)

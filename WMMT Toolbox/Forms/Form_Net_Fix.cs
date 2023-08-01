@@ -157,7 +157,7 @@ namespace WMMT_Toolbox.Forms
                 fileContent = regex_bbr.Replace(fileContent, "");
 
                 // 在文件末尾添加自定义内容和空白内容
-                fileContent += customText_ten + "\n";
+                fileContent += customText_bbr + "\n";
 
                 // 保存修改后的hosts文件内容
                 File.WriteAllText(filePath, fileContent);

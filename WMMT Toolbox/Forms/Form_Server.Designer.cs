@@ -65,7 +65,7 @@
             this.linkLabel_OLG.Size = new System.Drawing.Size(264, 20);
             this.linkLabel_OLG.TabIndex = 2;
             this.linkLabel_OLG.TabStop = true;
-            this.linkLabel_OLG.Text = "QQ群：756445021（点击即可加入）";
+            this.linkLabel_OLG.Text = "QQ群：640113003（点击即可加入）";
             this.linkLabel_OLG.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_OLG_LinkClicked);
             // 
             // label3
