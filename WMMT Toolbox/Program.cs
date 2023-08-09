@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace WMMT_Toolbox
@@ -14,6 +15,9 @@ namespace WMMT_Toolbox
         static void Main()
         {
             // 首先检查当前是否已打开
+
+            Thread.Sleep(200); // 引入1秒的延迟
+
             string strProcessName = System.Diagnostics.Process.GetCurrentProcess().ProcessName;   //获取欲启动进程名
                                                                                                   //检查进程是否已经启动，已经启动则提示信息退出程序
             if (System.Diagnostics.Process.GetProcessesByName(strProcessName).Length > 1)
