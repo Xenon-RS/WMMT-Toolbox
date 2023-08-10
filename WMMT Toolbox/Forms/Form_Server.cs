@@ -12,7 +12,7 @@ namespace WMMT_Toolbox.Forms
 
         private void linkLabel_OLG_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Process.Start("https://qm.qq.com/cgi-bin/qm/qr?k=UtnA3Zc8TZzgHpXCj-LtvnU5FSve3K4E&jump_from=webapi&authKey=GiR6wFTw0KDe8MMAGchvxZxDGtmP+OyD1ZhFvgZOoDOMnTix+moY3jSjXK+w7/st");
+            Process.Start("https://qm.qq.com/cgi-bin/qm/qr?k=Mg3LqBvw9y14ZLfw1ywKchtFmvw58Hh8&jump_from=webapi&authKey=4VV+PAebouBlA2zsdT1+EA8GlNPNFqzfafb3iZuMBZqGJ19ptKm1IHshPETVI+08");
         }
     }
 }
