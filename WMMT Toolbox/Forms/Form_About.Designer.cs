@@ -57,9 +57,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(14, 62);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(140, 20);
+            this.label3.Size = new System.Drawing.Size(158, 20);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Form OLG WMMT";
+            this.label3.Text = "Form Shimokitazawa";
             // 
             // Form_About
             // 

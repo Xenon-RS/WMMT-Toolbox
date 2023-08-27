@@ -53,9 +53,9 @@
             this.label2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label2.Location = new System.Drawing.Point(14, 55);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(175, 19);
+            this.label2.Size = new System.Drawing.Size(259, 19);
             this.label2.TabIndex = 1;
-            this.label2.Text = "OLG服（主打自由为主）";
+            this.label2.Text = "Shimokitazawa服（主打自由为主）";
             // 
             // linkLabel_OLG
             // 
@@ -65,7 +65,7 @@
             this.linkLabel_OLG.Size = new System.Drawing.Size(264, 20);
             this.linkLabel_OLG.TabIndex = 2;
             this.linkLabel_OLG.TabStop = true;
-            this.linkLabel_OLG.Text = "QQ群：640113003（点击即可加入）";
+            this.linkLabel_OLG.Text = "QQ群：907332005（点击即可加入）";
             this.linkLabel_OLG.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_OLG_LinkClicked);
             // 
             // label3
